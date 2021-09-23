@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,700;1,100&family=Source+Sans+Pro:wght@200;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>E-commerce Site</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="location">
+            <svg class="map_marker_svg svg_icon">
+                <use xlink:href="#lnr-map-marker"></use>
+            </svg>
+            <!-- <span class="lnr lnr-map-marker"></span> -->
+            <p>Deliver to</p> 
+            <span id="delivery-location">LOCATION</span>
+        </div>
+        <div class="logo-container">
+            <a href="#" class="logo">Shaker & Spoon Co.</a>
+        </div>
+        <a href="#" class="btn log-in-btn">
+            <svg class="user_svg svg_icon">
+                <use  xlink:href="#lnr-user"></use>
+            </svg>
+            Log In 
+        </a>
+        <a href="#" class="btn sign-up-btn">
+            <svg class="users_svg svg_icon">
+                <use xlink:href="#lnr-users"></use>
+            </svg>
+            Sign Up
+        </a>
+        <a href="#admin.html" class="btn admin-btn">
+            <svg class="lock_svg svg_icon">
+                <use xlink:href="#lnr-lock"></use>
+            </svg>
+            Admin
+        </a>
+        <p class="filter-btn">Filter</p>
+        <a href="#" id="cart-btn">
+            <svg class="cart_svg scg_icon">
+                <use xlink:href="#lnr-cart"></use>
+            </svg>
+            My Cart
+        </a>
+        <!-- Add a little icon as a counter for cart items -->
+    </nav>
+    <div class="container">
+        <div class="filter-sidebar">
+            <div class="close-icon">
+                <svg class="close_svg svg_icon">
+                    <use xlink:href="#lnr-cross"></use>
+                </svg>
+            </div>
+            <div class="form-control">
+                <h4 class="filter-header">Barware</h4>
+                <!-- Add underline for selecting an option - animation -->
+                <label for="barspoon">
+                    <input type="checkbox" name="barspoon" id="barspoon" value="Barspoon">
+                    Barspoon
+                </label>
+                <label for="jigger">
+                    <input type="checkbox" name="jigger" id="jigger" value="Jigger">
+                    Jigger
+                </label>
+                <label for="mixingglass">
+                    <input type="checkbox" name="mixingglass" id="mixingglass" value="Mixing Glass">
+                    Mixing Glass
+                </label>
+                <label for="shaker">
+                    <input type="checkbox" name="shaker" id="shaker" value="Shaker">
+                    Shaker
+                </label>
+                <label for="strainer">
+                    <input type="checkbox" name="strainer" id="strainer" value="Strainer">
+                    Strainer
+                </label>
+            </div>
+            <div class="form-control">
+                <h4 class="filter-header">Spirits</h4>
+                <label for="gin">
+                    <input type="checkbox" name="gin" id="gin" value="Gin">
+                    Gin
+                </label>
+                <label for="rum">
+                    <input type="checkbox" name="rum" id="rum" value="Rum">
+                    Rum
+                </label>
+                <label for="whiskey">
+                    <input type="checkbox" name="whiskey" id="whiskey" value="Whiskey/Whisky">
+                    Whiskey
+                </label>
+                <label for="tequila">
+                    <input type="checkbox" name="tequila" id="tequila" value="Tequila">
+                    Tequila
+                </label>
+                <label for="mezcal">
+                    <input type="checkbox" name="mezcal" id="mezcal" value="Mezcal">
+                    Mezcal
+                </label>
+                <label for="cognac">
+                    <input type="checkbox" name="cognac" id="cognac" value="Cognac">
+                    Cognac
+                </label>
+            </div>
+            <!-- <div class="form-control">
+                PRICES
+            </div> -->
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="image-container">
+                    <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg" alt="">
+                </div>
+                <div class="product-info">
+                    <h4 class="product-title">Product Title</h4>
+                    <p class="product-description">Product description</p>
+                    <!-- text overflow to show just a few words -->
+                    <p class="product-stock">Can be ordered - icon</p>
+                    <p class="product-price">Product Price</p>
+                    <input type="number" class="quantity">
+                    <a href="#" class="details-btn">Details</a>
+                    <a href="#" class="add-to-cart-btn">Add to Cart</a>
+                    <!-- For quantity -->
+                </div>
+            </div>
+            <div class="card">2</div>
+            <div class="card">3</div>
+            <div class="card">4</div>
+            <div class="card">4</div>
+            <div class="card">4</div>
+            <div class="card">4</div>
+            <div class="card">4</div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+    <script src="admin.js"></script>
+    <script src="cart.js"></script>
+    <script src="details.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
