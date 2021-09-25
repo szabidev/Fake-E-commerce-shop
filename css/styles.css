@@ -87,7 +87,6 @@ html {
 .btn {
   background-color: var(--secondary-color-dark);
   width: 12.5%;
-  margin: 0rem 1rem;
   display: inline-block;
   font-size: 2.25rem;
   text-decoration: none;
@@ -95,6 +94,12 @@ html {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   color: var(--gray-color-1);
+}
+
+.log-in-btn,
+.sign-up-btn,
+.admin-btn {
+  margin: 0rem 1rem;
 }
 
 .btn:hover {
@@ -131,7 +136,7 @@ html {
   right: 0;
   background-color: var(--secondary-color-dark);
   width: 25rem;
-  /* border: 1px solid black; */
+  border-bottom-left-radius: 5px;
   padding: 0.5rem 1rem;
   text-align: center;
   text-decoration: none;
@@ -389,7 +394,12 @@ html {
   display: flex;
   align-items: center;
   margin-left: 5rem;
+  margin-bottom: 2rem;
   padding: 0.5rem;
+}
+
+.address {
+  padding-top: 2rem;
 }
 
 .up-arrow {
@@ -449,6 +459,7 @@ html {
   margin-right: 2.5rem;
   width: 3rem;
   height: 3rem;
+  transform: translateY(5px);
 }
 
 .user_svg,
@@ -456,6 +467,14 @@ html {
 .lock_svg {
   margin-right: 1rem;
   padding-top: 0.75rem;
+}
+
+.add_to_cart_svg {
+  width: 3rem;
+  height: 3rem;
+  fill: var(--secondary-color);
+  margin-right: 1rem;
+  transform: translateY(5px);
 }
 
 .address_svg,

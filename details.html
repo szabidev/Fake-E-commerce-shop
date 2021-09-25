@@ -4,9 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,700;1,100&family=Source+Sans+Pro:wght@200;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>E-commerce Website</title>
 </head>
 <body>
-    
+    <nav class="details-navbar">
+        <div class="location">
+            <svg class="map_marker_svg svg_icon">
+                <use xlink:href="#lnr-map-marker"></use>
+            </svg>
+            <!-- <span class="lnr lnr-map-marker"></span> -->
+            <p>Deliver to</p>
+            <span id="delivery-location">LOCATION</span>
+        </div>
+        <div class="logo-container">
+            <a href="#" class="logo">Shaker & Spoon Co.</a>
+        </div>
+        <a href="#admin.html" class="btn details-admin-btn">
+            <svg class="lock_svg svg_icon">
+                <use xlink:href="#lnr-lock"></use>
+            </svg>
+            Admin
+        </a>
+        <a href="#" id="cart-btn">
+            <svg class="cart_svg scg_icon">
+                <use xlink:href="#lnr-cart"></use>
+            </svg>
+            My Cart
+        </a>
+    </nav>
+    <div class="details-container">
+        <div class="details-image-container">
+            <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg" alt="">
+        </div>
+        <div class="details-text-container">
+            <div class="details-product-title">
+                <h4>Product Title that is too long to show in enirity</h4>
+            </div>
+            <div class="details-product-detail">
+                <p class="details-text">
+                        "Made for heavy use with a very tight coil. Designed to make it easy to do a true split pour. Fits most
+                        large and standard mixing glasses. Gunmetal Black over 18/8 stainless steel. Not dishwasher safe
+                </p>
+            </div>
+            <div class="details-form-control">
+                <label for="product" class="details-label">Buy Now !!!</label>
+                <input type="number" name="product"  value="1">    
+            </div>
+            <div class="details-add-to-cart-btn">
+                <a href="#">
+                    <svg class="details_add_to_cart_svg">
+                        <use xlink:href="#lnr-plus-circle"></use>
+                    </svg>
+                    Add To Cart
+                </a>
+            </div>
+        </div>
+        <p class="stock-counter-text">
+            In Stock: <span id="stock-count">30</span>
+        </p>
+        <p class="details-price"> <sup class="dollar">$</sup> 342.99 </p>
+    </div>
+    <footer class="footer">
+        <div class="contact-info">
+            <div class="address">
+                <svg class="address_svg">
+                    <use xlink:href="#lnr-map-marker"></use>
+                </svg>
+                <p class="contact-text">Random Street 1A, Cluj Napoca, Romania</p>
+            </div>
+            <div class="email">
+                <svg class="mail_svg">
+                    <use xlink:href="#lnr-envelope"></use>
+                </svg>
+                <p class="contact-text">john.doe@gmail.com</p>
+            </div>
+            <div class="phone-number">
+                <svg class="phone_svg">
+                    <use xlink:href="#lnr-phone-handset"></use>
+                </svg>
+                <p class="contact-text">+0 123 456 789</p>
+            </div>
+        </div>
+        <div class="google-map details-google-map">
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="400" height="100%" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=cluj%20napoca&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                        href="https://www.zipcodewiki.net"></a><br>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+    <script src="admin.js"></script>
+    <script src="cart.js"></script>
+    <script src="details.js"></script>
+    <script src="ui.js"></script>
+    <script src="http.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
