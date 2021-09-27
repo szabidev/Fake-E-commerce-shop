@@ -72,6 +72,7 @@ html {
   font-family: var(--logo-font);
   letter-spacing: 0.4rem;
   text-decoration: none;
+  outline: none;
   cursor: pointer;
   color: var(--white);
 }

@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/details.css">
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>E-commerce Website</title>
 </head>
@@ -60,7 +61,7 @@
                     <th class="fourth-header">Quantity</th>
                     <th class="delete-btn-header">DELETE</th>
                 </thead>
-                <tbody>
+                <tbody id="cart-tbody">
                     <tr>
                         <td class="cart-product-picture">
                             <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg"
@@ -74,13 +75,21 @@
                         <td class="cart-product-delete"><a href="#" class="delete-btn">Delete</a></td>
                     </tr>
                 </tbody>
-                <tfoot >
-                    <!-- Continue from here -->
-                        <td colspan="4">Total</td>
-                </tfoot>
             </table>
+            <div class="price-amount-container">  
+                    <ul class="price-list">
+                        <li class="product-cart-price-text">Products cost:</li>
+                        <li class="delivery-cost">Shipping Fee:</li>
+                        <li class="total-cost">Total:</li>
+                    </ul>
+                    <ul class="price-amount">
+                        <li class="product-cart-price">$1000</li>
+                        <li class="delivery-cost-price">$10</li>
+                        <li class="total-cost-price">$1010</li>
+                    </ul>
+             
+            </div>
         </div>
-        
     </div>
 
     <footer class="footer">

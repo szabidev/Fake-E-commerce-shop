@@ -33,7 +33,7 @@
   grid-template-columns: 29.7rem 52.259rem; /* calcualte as percentage later*/
   grid-template-rows: 29.7rem 8.09rem auto;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .details-image-container {

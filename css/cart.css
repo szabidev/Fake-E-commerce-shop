@@ -1,22 +1,29 @@
 .cart-container {
   min-height: 50vh;
 }
-.cart-table {
-  margin: 10rem auto;
+.cart-table,
+.admin-table {
   width: 80%;
-  background-color: var(--secondary-color-dark);
+  margin: 0 auto;
+  /* margin-bottom: 2rem; */
+
   /* min-height: 37vh; */
 }
 
 #table {
+  background-color: var(--secondary-color-dark);
+  margin: 10rem auto;
+  margin-bottom: 2rem;
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
+  empty-cells: hide;
   /* check gap invisible border */
   border-radius: 5px;
 }
 
-th,
-td {
+#thead th,
+#cart-tbody td {
   font-size: 2rem;
   border: 1px solid var(--secondary-color);
   font-weight: 400;
@@ -24,11 +31,11 @@ td {
   text-align: left;
   color: var(--secondary-color);
 }
-th {
+#thead th {
   padding: 1rem 2rem;
 }
 
-td:not(:first-of-type) {
+#cart-tbody td:not(:first-of-type) {
   padding: 1rem 2rem;
 }
 
@@ -58,8 +65,8 @@ td:not(:first-of-type) {
   width: 30%;
   text-transform: uppercase;
   letter-spacing: 2px;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -83,4 +90,44 @@ td:not(:first-of-type) {
   letter-spacing: 3px;
   text-decoration: none;
   color: var(--secondary-color);
+}
+
+.price-amount-container {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+}
+
+/* .float-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+} */
+
+.price-list,
+.price-amount {
+  font-size: 2.5rem;
+  display: inline-block;
+  list-style: none;
+  letter-spacing: 1px;
+}
+
+.price-list {
+  text-align: end;
+}
+
+.price-amount {
+  margin: 0 3rem;
+}
+.delivery-cost,
+.delivery-cost-price,
+.total-cost,
+.total-cost-price {
+  padding-top: 1rem;
+}
+
+.total-cost-price {
+  color: var(--main-color);
 }
