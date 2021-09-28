@@ -43,18 +43,19 @@
             </svg>
             Sign Up
         </a>
-            <a href="#admin.html" class="btn admin-btn">
-                <svg class="lock_svg svg_icon">
-                    <use xlink:href="#lnr-lock"></use>
-                </svg>
-                Admin
-            </a>
-            <a href="#" id="cart-btn">
-                <svg class="cart_svg svg_icon">
-                    <use xlink:href="#lnr-cart"></use>
-                </svg>
-                My Cart
-            </a>     
+        <a href="#admin.html" class="btn admin-btn">
+            <svg class="lock_svg svg_icon">
+              <use xlink:href="#lnr-lock"></use>
+            </svg>
+            Admin
+        </a>
+        <a href="#" id="cart-btn">
+            <span class="cart-counter">1</span>
+            <svg class="cart_svg svg_icon">
+                <use xlink:href="#lnr-cart"></use>
+            </svg>
+            My Cart
+        </a>     
         <p class="filter-btn">Filter</p>
         <!-- Add a little icon as a counter for cart items -->
     </nav>
@@ -132,16 +133,25 @@
                 </label>
             </div>
         </div>
+        <div class="success-message">
+            <svg class="success_svg">
+                <use xlink:href="#lnr-checkmark-circle"></use>
+            </svg>
+            <p class="success-header">
+                <span class="success-title">Koriko Strainer</span>
+                 added to cart
+            </p>
+        </div>
         <div class="card-container">
-            <div class="card">
+            <!-- <div class="card">
                 <div class="image-container">
                     <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg" alt="">
                 </div>
                 <div class="product-info">
                     <h4 class="product-title">Hawthorne Strainer Title</h4>
-                    <p class="product-description">This is a very very long text to test out thewordbreakproperty if it will put a hyphen or not into my text asdasdasdasdadadasdaaaaaaaaaaaaaaaaa</p>
+                    <p class="product-description">This is a very very long text to test out thewordbreakproperty if it will put a hyphen or not into my text asdasdasdasdadadasdaaaaaaaaaaaaaaaaa</p> -->
                     <!-- text overflow to show just a few words -->
-                    <div class="stock-container">
+                    <!-- <div class="stock-container">
                         <svg class="stock_svg svg_icon">
                             <use xlink:href="#lnr-checkmark-circle"></use>
                         </svg>
@@ -149,113 +159,18 @@
                     </div>
                     <div class="product-numbers">
                         <p class="product-price"> <sup class="dollar">$</sup> 342.99 </p>
-                        <div class="quantity-container">
+                        <div class="quantity-container"> -->
                             <!-- Style the input make it textfield add +/- buttons  -->
-                            <label for="quantity">QTY</label>
+                            <!-- <label for="quantity">QTY</label> -->
                             <!-- get the value from the stock category and update max attribute -->
-                            <input type="number" name="quantity" class="quantity" value="1" min="0" max="1000" >
+                            <!-- <input type="number" name="quantity" class="quantity" value="1" min="0" max="1000" >
                         </div>
                     </div>
                     <a href="details.html" class="details-btn">Details</a>
-                    <a href="#" class="add-to-cart-btn">Add to Cart</a>
+                    <a href="#" class="add-to-cart-btn">Add to Cart</a> -->
                     <!-- For quantity -->
-                </div>
-            </div>
-            <div class="card">
-            <div class="image-container">
-                <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg"
-                    alt="">
-            </div>
-            <div class="product-info">
-                <h4 class="product-title">Hawthorne Strainer Title</h4>
-                <p class="product-description">This is a very very long text to test out thewordbreakproperty if it will put a
-                    hyphen or not into my text asdasdasdasdadadasdaaaaaaaaaaaaaaaaa</p>
-                <!-- text overflow to show just a few words -->
-                <div class="stock-container">
-                    <svg class="stock_svg svg_icon">
-                        <use xlink:href="#lnr-checkmark-circle"></use>
-                    </svg>
-                    <p class="product-stock">Can be ordered</p>
-                </div>
-                <div class="product-numbers">
-                    <p class="product-price"> <sup class="dollar">$</sup> 342.99 </p>
-                    <div class="quantity-container">
-                        <!-- Style the input make it textfield add +/- buttons  -->
-                        <label for="quantity">QTY</label>
-                        <!-- get the value from the stock category and update max attribute -->
-                        <input type="number" name="quantity" class="quantity" value="1" min="0" max="1000">
-                    </div>
-                </div>
-                <a href="#" class="details-btn">Details</a>
-                <a href="#" class="add-to-cart-btn">Add to Cart</a>
-                <!-- For quantity -->
-            </div>
-            </div>
-            <div class="card">
-            <div class="image-container">
-                <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg"
-                    alt="">
-            </div>
-            <div class="product-info">
-                <h4 class="product-title">Hawthorne Strainer Title</h4>
-                <p class="product-description">This is a very very long text to test out thewordbreakproperty if it will put a
-                    hyphen or not into my text asdasdasdasdadadasdaaaaaaaaaaaaaaaaa</p>
-                <!-- text overflow to show just a few words -->
-                <div class="stock-container">
-                    <svg class="stock_svg svg_icon">
-                        <use xlink:href="#lnr-checkmark-circle"></use>
-                    </svg>
-                    <p class="product-stock">Can be ordered</p>
-                </div>
-                <div class="product-numbers">
-                    <p class="product-price"> <sup class="dollar">$</sup> 342.99 </p>
-                    <div class="quantity-container">
-                        <!-- Style the input make it textfield add +/- buttons  -->
-                        <label for="quantity">QTY</label>
-                        <!-- get the value from the stock category and update max attribute -->
-                        <input type="number" name="quantity" class="quantity" value="1" min="0" max="1000">
-                    </div>
-                </div>
-                <a href="#" class="details-btn">Details</a>
-                <a href="#" class="add-to-cart-btn">Add to Cart</a>
-                <!-- For quantity -->
-            </div>
-            </div>
-            <div class="card">
-            <div class="image-container">
-                <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg"
-                    alt="">
-            </div>
-            <div class="product-info">
-                <h4 class="product-title">Hawthorne Strainer Title</h4>
-                <p class="product-description">This is a very very long text to test out thewordbreakproperty if it will put a
-                    hyphen or not into my text asdasdasdasdadadasdaaaaaaaaaaaaaaaaa</p>
-                <!-- text overflow to show just a few words -->
-                <div class="stock-container">
-                    <svg class="stock_svg svg_icon">
-                        <use xlink:href="#lnr-checkmark-circle"></use>
-                    </svg>
-                    <p class="product-stock">Can be ordered</p>
-                </div>
-                <div class="product-numbers">
-                    <p class="product-price"> <sup class="dollar">$</sup> 342.99 </p>
-                    <div class="quantity-container">
-                        <!-- Style the input make it textfield add +/- buttons  -->
-                        <label for="quantity">QTY</label>
-                        <!-- get the value from the stock category and update max attribute -->
-                        <input type="number" name="quantity" class="quantity" value="1" min="0" max="1000">
-                    </div>
-                </div>
-                <a href="#" class="details-btn">Details</a>
-                <a href="#" class="add-to-cart-btn">
-                    <svg class="add_to_cart_svg">
-                        <use xlink:href="#lnr-plus-circle"></use>
-                    </svg>
-                    Add to Cart
-                </a>
-                <!-- For quantity -->
-            </div>
-            </div>
+                <!-- </div>
+            </div> -->
         </div>
     </div>
     <footer class="footer">
@@ -299,11 +214,6 @@
 
 
     <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
-    <script src="admin.js"></script>
-    <script src="cart.js"></script>
-    <script src="details.js"></script>
-    <script src="ui.js"></script>
-    <script src="http.js"></script>
-    <script src="app.js"></script>
+    <script src="script/app.js" type="module"></script>
 </body>
 </html>

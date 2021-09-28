@@ -145,6 +145,20 @@ html {
   letter-spacing: 2px;
   font-size: 2.5rem;
   color: var(--gray-color-1);
+  /* position: relative; */
+}
+
+#cart-btn .cart-counter {
+  background-color: #06d6a0;
+  border-radius: 50%;
+  padding: 0.35rem;
+  font-size: 1.5rem;
+  color: #353535;
+  text-align: center;
+  font-weight: 700;
+  position: absolute;
+  top: 0.25rem;
+  left: 6.5rem;
 }
 
 /* ============================================ SIDEBAR ========================== */
@@ -217,6 +231,24 @@ html {
   margin: 0 0.5rem;
 }
 
+/* ========================================= BANNER ========================  */
+.success-message {
+  background-color: var(--secondary-color-dark);
+  color: #06d6a0;
+  width: 50%;
+  margin: 5rem auto;
+  border-radius: 5px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  /* visibility: hidden; */
+}
+
+.success_svg {
+  margin-right: 2rem;
+  transform: translateY(5px);
+}
 /* ============================================ GRID ========================== */
 
 .card-container {
@@ -226,7 +258,7 @@ html {
   grid-template-rows: auto;
   column-gap: 3rem;
   row-gap: 1rem;
-  margin: 7rem auto;
+  margin: 5rem auto;
   /* position: relative; */
 }
 
@@ -239,12 +271,12 @@ html {
 
 .image-container {
   border-bottom: 1px solid var(--secondary-color-dark);
+  height: 20.4rem;
 }
 
 .image-container img {
   max-width: 100%;
-  min-height: 100%;
-  width: 200px;
+  max-height: 100%;
 }
 
 .product-info {
@@ -290,6 +322,13 @@ html {
 
 .product-stock {
   color: #06d6a0;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+}
+
+.product-stock-error {
+  color: #e63946;
   text-align: center;
   font-size: 1.25rem;
   margin-left: 0.5rem;
@@ -436,6 +475,12 @@ html {
   fill: var(--gray-color-1);
 }
 
+.success_svg {
+  fill: #06d6a0;
+  width: 3rem;
+  height: 3rem;
+}
+
 .cart_svg,
 .user_svg,
 .users_svg,
@@ -454,6 +499,12 @@ html {
   width: 2rem;
   height: 2rem;
   fill: #06d6a0;
+}
+
+.error_svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #e63946;
 }
 
 .cart_svg {
