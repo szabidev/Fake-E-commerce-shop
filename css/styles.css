@@ -234,7 +234,6 @@ html {
 /* ========================================= BANNER ========================  */
 .success-message {
   background-color: var(--secondary-color-dark);
-  color: #06d6a0;
   width: 50%;
   margin: 5rem auto;
   border-radius: 5px;
@@ -242,6 +241,7 @@ html {
   display: flex;
   justify-content: center;
   padding: 1rem 0;
+  color: #06d6a0;
   /* visibility: hidden; */
 }
 
@@ -249,6 +249,7 @@ html {
   margin-right: 2rem;
   transform: translateY(5px);
 }
+
 /* ============================================ GRID ========================== */
 
 .card-container {
@@ -267,6 +268,8 @@ html {
   border: 1px solid var(--secondary-color-dark);
   border-radius: 0.5rem;
   overflow: hidden;
+  -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 .image-container {
@@ -543,4 +546,46 @@ html {
   height: 7rem;
   fill: var(--secondary-color);
   text-decoration: none;
+}
+
+/* =================================== ANIMATION =========================== */
+/* .fade-in-fwd {
+	-webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+} */
+
+@-webkit-keyframes fade-in-bck {
+  0% {
+    -webkit-transform: translateZ(80px);
+    transform: translateZ(80px);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateZ(40px);
+    transform: translateZ(40px);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-bck {
+  0% {
+    -webkit-transform: translateZ(80px);
+    transform: translateZ(80px);
+    opacity: 0;
+  }
+
+  50% {
+    -webkit-transform: translateZ(40px);
+    transform: translateZ(40px);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
 }

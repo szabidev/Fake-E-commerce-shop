@@ -5,8 +5,9 @@ class UI {
         this.cartTBody = document.getElementById('cart-tbody');
         this.quantity = document.querySelector('.quantity');
         this.adminTBody = document.getElementById('admin-tbody');
+        this.messageContainer = document.querySelector('.message-container');
     }
-    //- ShowAllProducts() - On index.html fetch all the products, and list them in a grid, div - on windiws load
+    //- ShowAllProducts() 
     showAllProducts(products) {
         let output = '';
         products.forEach((product) => {
@@ -33,8 +34,8 @@ class UI {
                             <input type="number" name="quantity" class="quantity" value="1" min="0" max="${product.stock}" >
                         </div>
                     </div>
-                    <a href="details.html?id=${product.id}" class="details-btn" id="${product.id}">Details</a>
-                    <a href="#" class="add-to-cart-btn">Add to Cart</a>
+                    <a href="details.html?id=${product.id}" target="_blank" class="details-btn" ">Details</a>
+                    <a href="#" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
                 </div>
             </div>
             `
@@ -61,8 +62,8 @@ class UI {
                             <input type="number" name="quantity" class="quantity" value="1" min="0" max="${product.stock}" >
                         </div>
                     </div>
-                    <a href="details.html?id=${product.id}" class="details-btn" id="${product.id}">Details</a>
-                    <a href="#" class="add-to-cart-btn">Add to Cart</a>
+                    <a href="details.html?id=${product.id}" target="_blank" class="details-btn" >Details</a>
+                    <a href="#" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
                 </div>
             </div>
             `
@@ -146,6 +147,28 @@ class UI {
         this.adminTBody.innerHTML = output;
 
     }
+
+    // showMessage(message, className) {
+    //     this.messageContainer.classList.add(className);
+    //     // inputMessage.innerHTML = `${message}`;
+    //     // inputMessage.style.visibility = 'visible';
+    //     if (className.classList.contains('success-message')) {
+    //         this.messageContainer.innerHTML = `
+    //             <svg class="error_message_svg">
+    //         <use xlink:href="#lnr-checkmark-circle"></use>
+    //     </svg>
+    //     <p class="success-header">
+    //         <span class="success-title">Koriko Strainer</span>
+    //         added to cart
+    //     </p>
+    //         `
+    //     }
+    //     // setTimeout function to remove the message after 3 seconds
+    //     setTimeout(() => {
+    //         inputMessage.className = '';
+    //         inputMessage.style.visibility = 'hidden';
+    //     }, 3000);
+    // }
 
     clearFields() {
         document.getElementById('image').value = '';
