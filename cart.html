@@ -29,7 +29,7 @@
             <span id="delivery-location">LOCATION</span>
         </div>
         <div class="logo-container">
-            <a href="#" class="logo">Shaker & Spoon Co.</a>
+            <a href="./index.html" class="logo">Shaker & Spoon Co.</a>
         </div>
         <a href="#" class="btn log-in-btn">
             <svg class="user_svg svg_icon">
@@ -43,7 +43,7 @@
             </svg>
             Sign Up
         </a>
-        <a href="#admin.html" class="btn admin-btn">
+        <a href="./admin.html" class="btn admin-btn">
             <svg class="lock_svg svg_icon">
                 <use xlink:href="#lnr-lock"></use>
             </svg>
@@ -51,40 +51,20 @@
         </a>
         <!-- Add a little icon as a counter for cart items -->
     </nav>
-    <div class="message-container success-message">
-        <svg class="success_svg">
-            <use xlink:href="#lnr-checkmark-circle"></use>
-        </svg>
-        <p class="success-header">
-            <span class="success-title">Koriko Strainer</span>
-            added to cart
-        </p>
-    </div>
     <div class="cart-container">
         <div class="cart-table">
             <table id="table">
                 <thead id="thead">
-                    <th class="first-header">Item PIC ?</th>
-                    <th class="second-header">Item</th>
+                    <th class="first-header">Item</th>
+                    <th class="second-header">Name</th>
                     <th class="third-header">Price</th>
                     <th class="fourth-header">Quantity</th>
                     <th class="delete-btn-header">DELETE</th>
                 </thead>
                 <tbody id="cart-tbody">
-                    <tr>
-                        <td class="cart-product-picture">
-                            <img src="https://www.cocktailkingdom.com/media/catalog/product/cache/1/small_image/295x295/9df78eab33525d08d6e5fb8d27136e95/s/t/str-kor-stl-web1.jpg"
-                               class="" alt="">
-                        </td>
-                        <td class="cart-product-name">KORIKO Hawthorne Strainer</td>
-                        <td class="cart-product-price">349.33</td>
-                        <td class="cart-product-quantity">
-                            <input type="number" id="cart-quantity" value="1">
-                        </td>
-                        <td class="cart-product-delete"><a href="#" class="delete-btn">Delete</a></td>
-                    </tr>
                 </tbody>
             </table>
+            <hr>
             <div class="price-amount-container">  
                     <ul class="price-list">
                         <li class="product-cart-price-text">Products cost:</li>
@@ -93,12 +73,13 @@
                     </ul>
                     <ul class="price-amount">
                         <li class="product-cart-price">$1000</li>
-                        <li class="delivery-cost-price">$10</li>
+                        <li class="delivery-cost-price" data-value="10">$10</li>
                         <li class="total-cost-price">$1010</li>
                     </ul>
-             
             </div>
+            <hr>
         </div>
+        <button class="checkout-btn" onsubmit="return false">To Checkout</button>
     </div>
 
     <footer class="footer">

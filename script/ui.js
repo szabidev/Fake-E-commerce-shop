@@ -1,5 +1,6 @@
 class UI {
     constructor() {
+        this.container = document.querySelector('.container');
         this.cardContainer = document.querySelector('.card-container');
         this.detailsContainer = document.querySelector('.details-container');
         this.cartTBody = document.getElementById('cart-tbody');
@@ -35,7 +36,7 @@ class UI {
                         </div>
                     </div>
                     <a href="details.html?id=${product.id}" target="_blank" class="details-btn" ">Details</a>
-                    <a href="#" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
+                    <a href="#" onclick="return false" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
                 </div>
             </div>
             `
@@ -63,7 +64,7 @@ class UI {
                         </div>
                     </div>
                     <a href="details.html?id=${product.id}" target="_blank" class="details-btn" >Details</a>
-                    <a href="#" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
+                    <a href="#" onclick="return false" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
                 </div>
             </div>
             `
@@ -86,10 +87,10 @@ class UI {
             </div>
             <div class="details-form-control">
                 <label for="product" class="details-label">Buy Now !!!</label>
-                <input type="number" name="product"  value="1">
+                <input type="number" name="product" id="details-input" value="1">
             </div>
             <div class="details-add-to-cart-btn">
-                <a href="#">
+                <a href="#" onclick="return false">
                     <svg class="details_add_to_cart_svg">
                         <use xlink:href="#lnr-plus-circle"></use>
                     </svg>
@@ -112,23 +113,24 @@ class UI {
         if (cart) {
             for (let i = 0; i < cart.length; i++) {
                 output += `
-                    <tr>
+                    <tr class="cart-row">
                         <td class="cart-product-picture">
                             <img src="${cart[i].image}" class="" alt="${cart[i].name}">
                         </td>
                         <td class="cart-product-name">${cart[i].name}</td>
                         <td class="cart-product-price">${cart[i].price}</td>
                         <td class="cart-product-quantity">
-                            <input type="number" id="cart-quantity" value="${this.quantity.value}">
+                        <input type="number" id="cart-quantity" value="1">
                         </td>
                         <td class="cart-product-delete">
                         <a href="#" class="delete-btn" id="${cart[i].id}">Delete</a>
                         </td>
-                    </tr>
-                `
+                        </tr>
+                        `
             }
         }
         this.cartTBody.innerHTML = output;
+        // ${this.quantity.getAttribute('value')}
     }
 
     showAllAdminProducts(products) {
@@ -148,27 +150,33 @@ class UI {
 
     }
 
-    // showMessage(message, className) {
-    //     this.messageContainer.classList.add(className);
-    //     // inputMessage.innerHTML = `${message}`;
-    //     // inputMessage.style.visibility = 'visible';
-    //     if (className.classList.contains('success-message')) {
-    //         this.messageContainer.innerHTML = `
-    //             <svg class="error_message_svg">
-    //         <use xlink:href="#lnr-checkmark-circle"></use>
-    //     </svg>
-    //     <p class="success-header">
-    //         <span class="success-title">Koriko Strainer</span>
-    //         added to cart
-    //     </p>
-    //         `
-    //     }
-    //     // setTimeout function to remove the message after 3 seconds
-    //     setTimeout(() => {
-    //         inputMessage.className = '';
-    //         inputMessage.style.visibility = 'hidden';
-    //     }, 3000);
-    // }
+    showSuccessMessage(message) {
+        let element = document.createElement('div');
+        element.classList.add('success-message');
+        element.innerHTML = `
+            <svg class="success_svg">
+                <use xlink:href="#lnr-checkmark-circle"></use>
+            </svg> ${message}
+        `;
+        this.container.appendChild(element);
+        setTimeout(() => {
+            element.remove()
+        }, 1000);
+    }
+
+    showDetailMessage(message) {
+        let element = document.createElement('div');
+        element.classList.add('success-message');
+        element.innerHTML = `
+            <svg class="success_svg">
+                <use xlink:href="#lnr-checkmark-circle"></use>
+            </svg> ${message}
+        `;
+        this.detailsContainer.appendChild(element);
+        setTimeout(() => {
+            element.remove()
+        }, 1000);
+    }
 
     clearFields() {
         document.getElementById('image').value = '';

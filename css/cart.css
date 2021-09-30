@@ -1,5 +1,6 @@
 .cart-container {
   min-height: 50vh;
+  padding-top: 10rem;
 }
 .cart-table,
 .admin-table {
@@ -19,7 +20,6 @@
   table-layout: fixed;
   empty-cells: hide;
   /* check gap invisible border */
-  border-radius: 5px;
 }
 
 #thead th,
@@ -33,14 +33,14 @@
 }
 #thead th {
   padding: 1rem 2rem;
+  text-transform: uppercase;
 }
 
 #cart-tbody td:not(:first-of-type) {
   padding: 1rem 2rem;
 }
 
-.first-header,
-.fourth-header {
+.first-header {
   width: 10%;
   /* check border */
   /* background-color: white; */
@@ -49,8 +49,9 @@
   width: 50%;
 }
 
-.third-header {
-  width: 15%;
+.third-header,
+.fourth-header {
+  width: 12.5%;
 }
 
 .cart-product-picture img {
@@ -129,4 +130,22 @@
 
 .total-cost-price {
   color: var(--main-color);
+}
+
+.checkout-btn {
+  width: 40%;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+hr {
+  width: 100%;
+  margin-bottom: 2rem;
 }

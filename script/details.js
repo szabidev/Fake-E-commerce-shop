@@ -23,13 +23,16 @@ window.onload = () => {
         }
 
         document.querySelector('.details-add-to-cart-btn').addEventListener('click', () => {
-            // ui for success message
+            ui.showDetailMessage(`${product.name} added to cart`);
 
             if (cart) {
                 cart = JSON.parse(localStorage.getItem("cart"));
-                localStorage.setItem("cart", JSON.stringify(cart));
                 cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
             };
+
+            console.log(document.getElementById('details-input'));
+            // save the input value to the local storage - in cart multiply price by input.value
         });
     });
 };
