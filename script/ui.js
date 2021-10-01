@@ -7,6 +7,7 @@ class UI {
         this.quantity = document.querySelector('.quantity');
         this.adminTBody = document.getElementById('admin-tbody');
         this.messageContainer = document.querySelector('.message-container');
+        this.cartNumber = document.querySelector('.cart-counter');
     }
     //- ShowAllProducts() 
     showAllProducts(products) {
@@ -32,7 +33,7 @@ class UI {
                         <div class="quantity-container">
                             <label for="quantity">QTY</label>
                             <!-- get the value from the stock category and update max attribute -->
-                            <input type="number" name="quantity" class="quantity" value="1" min="0" max="${product.stock}" >
+                            <input type="number" name="quantity" class="quantity" value="0" min="0" max="${product.stock}" >
                         </div>
                     </div>
                     <a href="details.html?id=${product.id}" target="_blank" class="details-btn" ">Details</a>
@@ -60,7 +61,7 @@ class UI {
                         <div class="quantity-container">
                             <label for="quantity">QTY</label>
                             <!-- get the value from the stock category and update max attribute -->
-                            <input type="number" name="quantity" class="quantity" value="1" min="0" max="${product.stock}" >
+                            <input type="number" name="quantity" class="quantity" value="0" min="0" max="${product.stock}" >
                         </div>
                     </div>
                     <a href="details.html?id=${product.id}" target="_blank" class="details-btn" >Details</a>
@@ -120,7 +121,7 @@ class UI {
                         <td class="cart-product-name">${cart[i].name}</td>
                         <td class="cart-product-price">${cart[i].price}</td>
                         <td class="cart-product-quantity">
-                        <input type="number" id="cart-quantity" value="1">
+                        <input type="number" class="cart-quantity" id="${cart[i].id}" value="${cart[i].qt}">
                         </td>
                         <td class="cart-product-delete">
                         <a href="#" class="delete-btn" id="${cart[i].id}">Delete</a>
@@ -140,7 +141,7 @@ class UI {
                 <tr>
                     <td class="admin-product-name">${product.name}</td>
                     <td class="admin-product-price">${product.price}</td>
-                    <td class="admin-product-quantity">${product.stock}</td>
+                    <td class="admin-product-quantity">${product.stock} </td>
                     <td class="admin-product-edit"><a href="#" class="edit-btn" id="${product.id}">Edit</a></td>
                     <td class="admin-product-delete"><a href="#" class="admin-delete-btn" id="${product.id}">Delete</a></td>
                 </tr>
@@ -148,6 +149,57 @@ class UI {
         });
         this.adminTBody.innerHTML = output;
 
+    }
+
+    cartCounter() {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        if (cart === null) {
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        let counter = 0;
+        for (let i = 0; i < cart.length; i++) {
+            let inputQt = document.querySelectorAll('.quantity')[i].value;
+            let cartItemQt = Number(cart[i].qt);
+            cart[i].qt = cartItemQt + Number(inputQt);
+            counter = Number(counter) + cartItemQt;
+            this.cartNumber.innerHTML = Number(counter);
+        }
+    };
+
+    cartDetailsCounter(product) {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        if (cart === null) {
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        let counter = 0;
+        for (let i = 0; i < cart.length; i++) {
+            let inputQt = document.querySelector('#details-input').value;
+            let cartItemQt = Number(product.qt);
+            // console.log(inputQt);
+            cartItemQt = inputQt;
+            product.qt =
+                // console.log(cartItemQt);
+                counter = Number(counter) + Number(inputQt);
+            // console.log(product.qt);
+            // console.log(inputQt);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            this.cartNumber.innerHTML = Number(counter);
+        }
+    }
+
+    onLoadCounter() {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        if (cart === null) {
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify(cart));
+        };
+        let total = 0;
+        for (let i = 0; i < cart.length; i++) {
+            total = Number(total) + Number(cart[i].qt);
+        }
+        this.cartNumber.innerHTML = Number(total);
     }
 
     showSuccessMessage(message) {
@@ -175,7 +227,7 @@ class UI {
         this.detailsContainer.appendChild(element);
         setTimeout(() => {
             element.remove()
-        }, 1000);
+        }, 4000);
     }
 
     clearFields() {

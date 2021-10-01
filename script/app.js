@@ -4,12 +4,15 @@ import { ui } from "./ui.js";
 const productsURL = "https://61363d1a8700c50017ef54c1.mockapi.io/product";
 const filterBtn = document.querySelector('.filter-btn');
 const sidebar = document.querySelector('.filter-sidebar');
+const cartCounter = document.querySelector('.cart-counter');
 
 document.addEventListener("DOMContentLoaded", listAllProducts);
 
 function listAllProducts() {
     http.get(productsURL).then((products) => {
         ui.showAllProducts(products);
+        ui.onLoadCounter();
+        // ui.cartCounter();
         // console.log(navigator.geolocation);
 
         // Deliver to location
@@ -30,17 +33,22 @@ function listAllProducts() {
                 let id = e.target.getAttribute('id');
                 for (let i = 0; i < products.length; i++) {
                     if (id == products[i].id) {
-
+                        const itemQt = document.querySelectorAll('.quantity')[i].value;
                         if (cart === null) {
                             cart = [];
                             localStorage.setItem("cart", JSON.stringify(cart));
                         }
                         if (cart) {
+                            // for (let j = 0; j < itemQt; j++) {
                             cart = JSON.parse(localStorage.getItem('cart'));
+                            products[i].qt = itemQt
                             cart.push(products[i]);
                             localStorage.setItem("cart", JSON.stringify(cart));
+                            //}
                         }
-                        ui.showSuccessMessage(`${products[i].name} added to cart`)
+                        ui.showSuccessMessage(`${products[i].name} added to cart`);
+                        ui.cartCounter();
+
                     }
                 }
             }

@@ -10,12 +10,13 @@ window.onload = () => {
     // console.log(searchParam)
     const id = searchParam.get("id"); //getting the id-nr out of the string
     // console.log(id);
-
+    ui.onLoadCounter();
     http.get(productsURL + "/" + id).then((product) => {
         ui.showSingleProductDetail(product);
+        // ui.cartCounter();
         let cart = JSON.parse(localStorage.getItem("cart"));
-        console.log(typeof cart);
-        console.log(product);
+        // console.log(typeof cart);
+        // console.log(product);
 
         if (cart === null) {
             cart = [];
@@ -24,14 +25,18 @@ window.onload = () => {
 
         document.querySelector('.details-add-to-cart-btn').addEventListener('click', () => {
             ui.showDetailMessage(`${product.name} added to cart`);
-
+            // const itemQt = document.getElementById('details-input').value;
             if (cart) {
+                // for (let i = 0; i < itemQt; i++) {
                 cart = JSON.parse(localStorage.getItem("cart"));
                 cart.push(product);
                 localStorage.setItem("cart", JSON.stringify(cart));
+                // product.qt = itemQt;
+                // }
             };
-
-            console.log(document.getElementById('details-input'));
+            ui.cartDetailsCounter(product);
+            // console.log(itemQt)
+            // console.log(document.getElementById('details-input'));
             // save the input value to the local storage - in cart multiply price by input.value
         });
     });

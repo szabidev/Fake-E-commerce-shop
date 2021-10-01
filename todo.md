@@ -1,7 +1,8 @@
 -index.html / app.js
 
 - Filter sidebar should list products based on selected input fields
-- on AddToCart click save product to local storage(done), increase the counter by the number shown in quantity input field
+- on AddToCart click save product to local storage(done),
+- increase the counter by the number shown in quantity input field, add product to local storage as many times as the input value
 - save Qunatity number to local storage
 - add a settimeout in ui.js to animate the cards 500millisec
 - use geocode to list the country name in the navbar

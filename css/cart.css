@@ -79,7 +79,7 @@
   text-align: center;
 }
 
-#cart-quantity {
+.cart-quantity {
   width: 70%;
   font-size: 2rem;
   padding: 0.5rem 1rem;
