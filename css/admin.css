@@ -124,6 +124,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 }
 
 .new-product-form label {
@@ -198,4 +199,22 @@ optgroup[label="Barware"] {
 .new-product-form label[for="stock"],
 .new-product-form input[name="stock"] {
   margin-left: 1.5rem;
+}
+
+.input-invalid {
+  border: 1px solid #e63946;
+}
+
+.input-valid {
+  border: 1px solid #06d6a0;
+}
+
+.valid_input_svg {
+  width: 3rem;
+  height: 3rem;
+  fill: #06d6a0;
+  position: absolute;
+  top: 5.5rem;
+  right: 4rem;
+  /* display: none; */
 }

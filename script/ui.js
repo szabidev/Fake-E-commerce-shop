@@ -33,7 +33,7 @@ class UI {
                         <div class="quantity-container">
                             <label for="quantity">QTY</label>
                             <!-- get the value from the stock category and update max attribute -->
-                            <input type="number" name="quantity" class="quantity" value="0" min="0" max="${product.stock}" >
+                            <input type="number" name="quantity" class="quantity" value="1" min="0" max="${product.stock}" >
                         </div>
                     </div>
                     <a href="details.html?id=${product.id}" target="_blank" class="details-btn" ">Details</a>
@@ -61,7 +61,7 @@ class UI {
                         <div class="quantity-container">
                             <label for="quantity">QTY</label>
                             <!-- get the value from the stock category and update max attribute -->
-                            <input type="number" name="quantity" class="quantity" value="0" min="0" max="${product.stock}" >
+                            <input type="number" name="quantity" class="quantity" value="1" min="0" max="${product.stock}" >
                         </div>
                     </div>
                     <a href="details.html?id=${product.id}" target="_blank" class="details-btn" >Details</a>
@@ -154,40 +154,40 @@ class UI {
     cartCounter() {
         let cart = JSON.parse(localStorage.getItem('cart'));
         if (cart === null) {
+            let cart = JSON.parse(localStorage.getItem('cart'));
             cart = [];
             localStorage.setItem("cart", JSON.stringify(cart));
         }
         let counter = 0;
-        for (let i = 0; i < cart.length; i++) {
-            let inputQt = document.querySelectorAll('.quantity')[i].value;
-            let cartItemQt = Number(cart[i].qt);
-            cart[i].qt = cartItemQt + Number(inputQt);
-            counter = Number(counter) + cartItemQt;
-            this.cartNumber.innerHTML = Number(counter);
-        }
+        cart.forEach((item => {
+            counter = Number(counter) + Number(item.qt);
+        }));
+
+        this.cartNumber.innerHTML = counter;
     };
 
-    cartDetailsCounter(product) {
-        let cart = JSON.parse(localStorage.getItem('cart'));
-        if (cart === null) {
-            cart = [];
-            localStorage.setItem("cart", JSON.stringify(cart));
-        }
-        let counter = 0;
-        for (let i = 0; i < cart.length; i++) {
-            let inputQt = document.querySelector('#details-input').value;
-            let cartItemQt = Number(product.qt);
-            // console.log(inputQt);
-            cartItemQt = inputQt;
-            product.qt =
-                // console.log(cartItemQt);
-                counter = Number(counter) + Number(inputQt);
-            // console.log(product.qt);
-            // console.log(inputQt);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            this.cartNumber.innerHTML = Number(counter);
-        }
-    }
+    // cartDetailsCounter(product) {
+    //     let cart = JSON.parse(localStorage.getItem('cart'));
+    //     if (cart === null) {
+    //         cart = [];
+    //         localStorage.setItem("cart", JSON.stringify(cart));
+    //     }
+    //     // product.qt = '0';
+    //     let counter = 0;
+    //     for (let i = 0; i < cart.length; i++) {
+    //         let inputQt = document.querySelector('#details-input').value;
+    //         let cartItemQt = Number(product.qt);
+    //         // console.log(inputQt);
+    //         cartItemQt = inputQt;
+    //         // console.log(cartItemQt);
+    //         counter = Number(counter) + Number(inputQt);
+    //         // console.log(product.qt);
+    //         // console.log(inputQt);
+    //         localStorage.setItem("cart", JSON.stringify(cart));
+    //         this.cartNumber.innerHTML = Number(counter);
+    //         // product.qt = product.qt + Number(inputQt);
+    //     }
+    // }
 
     onLoadCounter() {
         let cart = JSON.parse(localStorage.getItem('cart'));

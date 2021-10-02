@@ -72,25 +72,39 @@
             <div class="new-product-form">
                 <label for="image">Image:</label>
                 <input type="text" name="image" id="image" placeholder="Image URL">
+                <svg class="valid_input_svg valid_image_svg">
+                    <use xlink:href="#lnr-checkmark-circle"></use>
+                </svg>
             </div>
             <div class="new-product-form">
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="name" placeholder="Product name">
+                <input type="text" class="input-invalid" name="name" id="name" placeholder="Product name">
+                <svg class="valid_input_svg valid_name_svg">
+                    <use xlink:href="#lnr-checkmark-circle"></use>
+                </svg>
             </div>
             <div class="flex">
-
                 <div class="new-product-form">
                     <label for="price">Price:</label>
                     <input type="text" name="price" id="price" pattern="" placeholder="validate for numbers">
+                    <svg class="valid_input_svg valid_price_svg">
+                        <use xlink:href="#lnr-checkmark-circle"></use>
+                    </svg>
                 </div>
                 <div class="new-product-form">
                     <label for="stock">Stock:</label>
                     <input type="number" name="stock" id="stock" placeholder="Amount?">
+                    <svg class="valid_input_svg valid_stock_svg">
+                        <use xlink:href="#lnr-checkmark-circle"></use>
+                    </svg>
                 </div>
             </div>
             <div class="new-product-form">
                 <label for="category">Category:</label>
                 <input type="text" name="category" id="category" placeholder="Barware or Spirits">
+                <svg class="valid_input_svg valid_category_svg">
+                    <use xlink:href="#lnr-checkmark-circle"></use>
+                </svg>
             </div>
             <div class="new-product-form">
                 <label for="type">Type:</label>

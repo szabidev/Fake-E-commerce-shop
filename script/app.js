@@ -39,12 +39,14 @@ function listAllProducts() {
                             localStorage.setItem("cart", JSON.stringify(cart));
                         }
                         if (cart) {
-                            // for (let j = 0; j < itemQt; j++) {
                             cart = JSON.parse(localStorage.getItem('cart'));
-                            products[i].qt = itemQt
+                            products[i].qt = itemQt;
+                            // if (cart.includes(products[i])) {
+                            //     console.log(cart[products[i]]);
+                            // }
                             cart.push(products[i]);
+                            // console.log(cart.includes(products[i]));
                             localStorage.setItem("cart", JSON.stringify(cart));
-                            //}
                         }
                         ui.showSuccessMessage(`${products[i].name} added to cart`);
                         ui.cartCounter();

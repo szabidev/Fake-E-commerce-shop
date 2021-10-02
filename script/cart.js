@@ -10,9 +10,11 @@ const table = document.getElementById('table');
 window.onload = () => {
     http.get(productsURL).then(() => {
         ui.showCartProducts();
-
-        table.addEventListener('change', calculateTotalPrice);
         calculateTotalPrice();
+
+        // table.addEventListener('change', calculateTotalPrice);
+        table.addEventListener('change', updateQuantity);
+        table.addEventListener('click', deleteItem);
     });
 };
 
@@ -35,32 +37,70 @@ const calculateTotalPrice = () => {
         priceText.innerHTML = `$${parseFloat(total).toFixed(2)}`
     };
 
-    if (total < 200) {
+    if (total < 200 && total > 0) {
         shipping.innerHTML = "$30";
         shipping.setAttribute('data-value', 30);
         totalPrice.innerHTML = `
-        $ ${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
+        $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
-        updateQuantity();
+
     } else if (total > 201 && total < 1000) {
         shipping.innerHTML = "$15"
         shipping.setAttribute('data-value', 15);
         totalPrice.innerHTML = `
-        $ ${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
+        $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
-        updateQuantity();
+
     } else {
-        shipping.innerHTML = "$0";
+        priceText.innerHTML = "$0.00"
+        shipping.innerHTML = "$0.00";
         shipping.setAttribute('data-value', 0);
         totalPrice.innerHTML = `
-        $ ${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
+        $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
-        updateQuantity();
     };
 };
 
 function updateQuantity(e) {
-    if (e.target.classList.contains('quantity')) {
-        console.log(e.target)
-    }
-}
+    if (e.target.classList.contains('cart-quantity')) {
+        let input = e.target;
+        //input validation: quantity must be a number between 1 and max.stock
+        if (isNaN(input.value) || input.value <= 0) {
+            input.value = 1;
+        };
+        //send the changed quantity of a product from the input field to local storage
+        let idInput = e.target.getAttribute("id");
+        let cart = JSON.parse(localStorage.getItem("cart"));
+
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === idInput) {
+                cart[i].qt = Number(input.value);
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
+        };
+
+        calculateTotalPrice();
+    };
+};
+
+
+function deleteItem(e) {
+    if (e.target.classList.contains('delete-btn')) {
+        // remove from the DOM
+        e.target.parentElement.parentElement.remove();
+        let btnId = e.target.getAttribute('id');
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        // loop through the local storage if id's match delete the item
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === btnId) {
+                // delete one element with i index
+                cart.splice(i, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                // recalculate price
+                calculateTotalPrice();
+                // exit the loop
+                return;
+            };
+        };
+    };
+};
