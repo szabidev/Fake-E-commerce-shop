@@ -12,7 +12,7 @@
   transform: translateY(3.5px);
 }
 
-.new-product-btn {
+/* .new-product-btn {
   display: inline-block;
   margin-top: 3rem;
   margin-left: 10%;
@@ -28,7 +28,7 @@
   outline: none;
   cursor: pointer;
   border-radius: 5px;
-}
+} */
 
 .admin-table-wrapper {
   width: 80%;
@@ -119,18 +119,42 @@
   padding: 2.5rem 5rem;
   border: 1px solid var(--secondary-color-dark);
   border-radius: 5px;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.margin {
+  margin: 5rem 0;
 }
 .new-product-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   position: relative;
+  /* margin: 2.5rem 0; */
 }
 
 .new-product-form label {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  position: absolute;
+  top: -0.25rem;
+  left: 1.5rem;
+}
+
+.new-product-form label[for="description"] {
+  top: -0.25rem;
+}
+
+.new-product-form input:focus + label {
+  animation: inputTextDown 0.4s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.new-product-form textarea:focus {
+  animation: inputTextDown 0.4s ease-out;
+  animation-fill-mode: forwards;
 }
 .new-product-form input {
   padding: 1rem 2rem;
@@ -160,6 +184,7 @@
   font-size: 2rem;
   border-top: 1px solid var(--secondary-color-dark);
   border-radius: 5px;
+  /* margin: 2.5rem 0; */
   /* -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; */
@@ -173,12 +198,17 @@ optgroup[label="Barware"] {
   width: 50%;
 } */
 
-.admin-add-item-btn {
+.admin-add-item-btn,
+.cancel-btn {
   margin: 2rem auto;
   padding: 1rem 2rem;
   width: 100%;
   font-size: 2rem;
   letter-spacing: 1px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .flex {
@@ -216,5 +246,33 @@ optgroup[label="Barware"] {
   position: absolute;
   top: 5.5rem;
   right: 4rem;
-  /* display: none; */
+  display: none;
+}
+
+.input-error {
+  width: 70%;
+  height: 2rem;
+  font-size: 1.5rem;
+  color: #e63946;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+}
+
+@keyframes inputTextDown {
+  0% {
+    top: -0.25rem;
+    opacity: 0;
+  }
+
+  50% {
+    top: 2rem;
+    opacity: 0.5;
+  }
+
+  100% {
+    top: 3.5rem;
+    opacity: 1;
+  }
 }

@@ -8,6 +8,8 @@ class UI {
         this.adminTBody = document.getElementById('admin-tbody');
         this.messageContainer = document.querySelector('.message-container');
         this.cartNumber = document.querySelector('.cart-counter');
+        this.inputContainer = document.querySelectorAll('.new-product-form');
+        this.labels = document.getElementsByClassName('label')
     }
     //- ShowAllProducts() 
     showAllProducts(products) {
@@ -139,6 +141,7 @@ class UI {
         products.forEach((product) => {
             output += `
                 <tr>
+                    <td class="admin-product-id">${product.id}</td>
                     <td class="admin-product-name">${product.name}</td>
                     <td class="admin-product-price">${product.price}</td>
                     <td class="admin-product-quantity">${product.stock} </td>
@@ -148,8 +151,7 @@ class UI {
             `
         });
         this.adminTBody.innerHTML = output;
-
-    }
+    };
 
     cartCounter() {
         let cart = JSON.parse(localStorage.getItem('cart'));
@@ -166,29 +168,6 @@ class UI {
         this.cartNumber.innerHTML = counter;
     };
 
-    // cartDetailsCounter(product) {
-    //     let cart = JSON.parse(localStorage.getItem('cart'));
-    //     if (cart === null) {
-    //         cart = [];
-    //         localStorage.setItem("cart", JSON.stringify(cart));
-    //     }
-    //     // product.qt = '0';
-    //     let counter = 0;
-    //     for (let i = 0; i < cart.length; i++) {
-    //         let inputQt = document.querySelector('#details-input').value;
-    //         let cartItemQt = Number(product.qt);
-    //         // console.log(inputQt);
-    //         cartItemQt = inputQt;
-    //         // console.log(cartItemQt);
-    //         counter = Number(counter) + Number(inputQt);
-    //         // console.log(product.qt);
-    //         // console.log(inputQt);
-    //         localStorage.setItem("cart", JSON.stringify(cart));
-    //         this.cartNumber.innerHTML = Number(counter);
-    //         // product.qt = product.qt + Number(inputQt);
-    //     }
-    // }
-
     onLoadCounter() {
         let cart = JSON.parse(localStorage.getItem('cart'));
         if (cart === null) {
@@ -200,7 +179,7 @@ class UI {
             total = Number(total) + Number(cart[i].qt);
         }
         this.cartNumber.innerHTML = Number(total);
-    }
+    };
 
     showSuccessMessage(message) {
         let element = document.createElement('div');
@@ -214,7 +193,7 @@ class UI {
         setTimeout(() => {
             element.remove()
         }, 1000);
-    }
+    };
 
     showDetailMessage(message) {
         let element = document.createElement('div');
@@ -227,8 +206,19 @@ class UI {
         this.detailsContainer.appendChild(element);
         setTimeout(() => {
             element.remove()
-        }, 4000);
-    }
+        }, 1000);
+    };
+
+    showAdminMessage(message, i) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('input-error');
+        messageElement.innerHTML = message;
+
+        this.inputContainer[i].insertAdjacentElement('afterbegin', messageElement);
+        setTimeout(() => {
+            messageElement.remove();
+        }, 10000)
+    };
 
     clearFields() {
         document.getElementById('image').value = '';
@@ -238,20 +228,7 @@ class UI {
         document.getElementById('category').value = '';
         // document.getElementById('category').value = '';
         document.getElementById('description').value = '';
-    }
-
-
-
-    // - FilterProduct() - Based on the sidebar show the products on index.html, checkbox input add eventlistener
-    // - AddProductToCart() - add product to cart from details.html / later add button on index.html to products and add to cart
-    // - ShowAllAdminProducts() - on admin.html fetch all the products and list them, add edit and delete button with event listeners
-    // - AddProduct - add product to the json file
-    // - EditProduct() - the product.value will go to the input field on admin.html and can be edited
-    // - DeleteProduct() - event listener on button to delete product from the json file
-    // - ClearFields() - clear input fields after editing or adding a product
-    // - ShowSuccessMessage() - div with success message, disappearring with set timeout
-    // - ShowErrorMessage() - div with error message, disappearring with set timeout
-    // - AddtoCartBanner() 
+    };
 };
 
 

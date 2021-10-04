@@ -42,73 +42,53 @@
         <!-- add some content here -->
     </nav>
     <div class="admin-container">
-        <a href="#admin-form" class="new-product-btn">
+        <!-- <a href="#admin-form" class="new-product-btn">
             <svg class="new_product_svg">
                 <use xlink:href="#lnr-plus-circle"></use>
             </svg>
             Add new product
-        </a>
-        <div class="admin-table-wrapper">
-            <table id="admin-table">
-                <thead id="admin-thead">
-                    <th class="header-1">Item</th>
-                    <th class="header-2">Price</th>
-                    <th class="header-3">Stock</th>
-                    <th class="header-4">EDIT</th>
-                    <th class="header-5">DELETE</th>
-                </thead>
-                <tbody id="admin-tbody">
-                    <!-- <tr>
-                        <td class="admin-product-name">KORIKO Hawthorne Strainer</td>
-                        <td class="admin-product-price">349.33</td>
-                        <td class="admin-product-quantity">5</td>
-                        <td class="admin-product-edit"><a href="#" class="edit-btn">Edit</a></td>
-                        <td class="admin-product-delete"><a href="#" class="admin-delete-btn">Delete</a></td>
-                    </tr> -->
-                </tbody>
-            </table>
-        </div>
+        </a> -->
         <form class="new-product-container" id="admin-form">
-            <div class="new-product-form">
+            <div class="new-product-form margin">
+                <input type="text" name="image" id="image" required autocomplete="off">
                 <label for="image">Image:</label>
-                <input type="text" name="image" id="image" placeholder="Image URL">
                 <svg class="valid_input_svg valid_image_svg">
                     <use xlink:href="#lnr-checkmark-circle"></use>
                 </svg>
             </div>
-            <div class="new-product-form">
+            <div class="new-product-form margin">
+                <input type="text" class="" name="name" id="name" required autocomplete="off">
                 <label for="name">Name:</label>
-                <input type="text" class="input-invalid" name="name" id="name" placeholder="Product name">
                 <svg class="valid_input_svg valid_name_svg">
                     <use xlink:href="#lnr-checkmark-circle"></use>
                 </svg>
             </div>
-            <div class="flex">
+            <div class="flex margin">
                 <div class="new-product-form">
+                    <input type="text" name="price" id="price" required autocomplete="off">
                     <label for="price">Price:</label>
-                    <input type="text" name="price" id="price" pattern="" placeholder="validate for numbers">
                     <svg class="valid_input_svg valid_price_svg">
                         <use xlink:href="#lnr-checkmark-circle"></use>
                     </svg>
                 </div>
                 <div class="new-product-form">
+                    <input type="number" name="stock" id="stock" required autocomplete="off">
                     <label for="stock">Stock:</label>
-                    <input type="number" name="stock" id="stock" placeholder="Amount?">
                     <svg class="valid_input_svg valid_stock_svg">
                         <use xlink:href="#lnr-checkmark-circle"></use>
                     </svg>
                 </div>
             </div>
-            <div class="new-product-form">
+            <div class="new-product-form margin">
+                <input type="text" name="category" id="category" required autocomplete="off">
                 <label for="category">Category:</label>
-                <input type="text" name="category" id="category" placeholder="Barware or Spirits">
                 <svg class="valid_input_svg valid_category_svg">
                     <use xlink:href="#lnr-checkmark-circle"></use>
                 </svg>
             </div>
-            <div class="new-product-form">
-                <label for="type">Type:</label>
-                <select name="type" id="type">
+            <div class="new-product-form margin">
+                <label for="type"></label>
+                <select id="type" required>
                     <optgroup label="Barware">
                         <option value="shaker">Shaker</option>
                         <option value="jigger">Jigger</option>
@@ -127,13 +107,36 @@
                     </optgroup>
                 </select>
             </div>
-            <div class="new-product-form">
+            <div class="new-product-form margin">
                 <label for="description">Description:</label>
-                <textarea name="description" rows="6" cols="50"  id="description" placeholder="Say something about this product..."></textarea>
+                <textarea name="description" rows="6" cols="50" id="description" required autocomplete="off"></textarea>
             </div>
             <input class="admin-add-item-btn" type="submit" onsubmit="false" value="ADD ITEM">
+            <button class="cancel-btn"onsubmit="return false" id="cancel">Cancel</button>
         </form>
-    </div>
+        </div>
+        <div class="admin-table-wrapper">
+            <table id="admin-table">
+                <thead id="admin-thead">
+                    <th class="header-0">ID</th>
+                    <th class="header-1">Item</th>
+                    <th class="header-2">Price</th>
+                    <th class="header-3">Stock</th>
+                    <th class="header-4">EDIT</th>
+                    <th class="header-5">DELETE</th>
+                </thead>
+                <tbody id="admin-tbody">
+                    <!-- <tr>
+                        <td class="admin-product-name">KORIKO Hawthorne Strainer</td>
+                        <td class="admin-product-price">349.33</td>
+                        <td class="admin-product-quantity">5</td>
+                        <td class="admin-product-edit"><a href="#" class="edit-btn">Edit</a></td>
+                        <td class="admin-product-delete"><a href="#" class="admin-delete-btn">Delete</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        
 
     <footer class="footer">
         <div class="contact-info">
