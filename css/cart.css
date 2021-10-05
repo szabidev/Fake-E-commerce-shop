@@ -90,6 +90,7 @@
   letter-spacing: 3px;
   text-decoration: none;
   color: var(--secondary-color);
+  text-transform: uppercase;
 }
 
 .price-amount-container {

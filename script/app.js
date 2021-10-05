@@ -8,6 +8,9 @@ const sidebar = document.querySelector('.filter-sidebar');
 const container = document.querySelector('.container');
 
 document.addEventListener("DOMContentLoaded", listAllProducts);
+filterBtn.addEventListener('click', toggleSidebar);
+
+
 
 function listAllProducts() {
     http.get(productsURL).then((products) => {
@@ -46,8 +49,7 @@ function listAllProducts() {
     });
 };
 
-
-const toggleSidebar = () => {
+function toggleSidebar() {
     if (sidebar.classList.contains('hide')) {
         sidebar.classList.remove('hide');
         sidebar.classList.add('show');
@@ -56,4 +58,3 @@ const toggleSidebar = () => {
         sidebar.classList.add('hide');
     }
 }
-filterBtn.addEventListener('click', toggleSidebar);

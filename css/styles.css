@@ -129,6 +129,7 @@ html {
   letter-spacing: 3px;
   padding: 0.3rem 0;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 #cart-btn {

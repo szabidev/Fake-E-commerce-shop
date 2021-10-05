@@ -15,30 +15,32 @@ const descriptionInput = document.getElementById('description');
 const validSvg = document.querySelectorAll('.valid_input_svg');
 // const adminForm = document.getElementById('admin-form');
 const adminTable = document.getElementById('admin-tbody');
+const editBtn = document.querySelectorAll('.edit-btn');
+const adminBtn = document.querySelectorAll('.admin-delete-btn');
 const cancel = document.getElementById('cancel');
 let productToEdit;
 let edit = false;
 let id;
 
 
+document.addEventListener('DOMContentLoaded', listAdminProducts);
+
 
 // adminForm.addEventListener('submit', validateInput);
+addItem.addEventListener('click', addOrEditProducts);
+// adminTable.addEventListener('click', editOrDeleteItem);
 adminTable.addEventListener('click', deleteProduct);
 adminTable.addEventListener('click', editProduct);
 cancel.addEventListener('click', cancelEdit);
 
-const listAdminProducts = () => {
+function listAdminProducts() {
     http.get(productsURL).then(products => {
         ui.showAllAdminProducts(products);
     });
 };
-document.addEventListener('DOMContentLoaded', listAdminProducts);
 
 
-addItem.addEventListener('click', addOrEditProducts);
-
-const addOrEditProducts = () => {
-    // e.preventDefault();
+function addOrEditProducts() {
     if (edit === true && validateInput() === true) {
         productToEdit = {
             image: imgInput.value,
@@ -47,9 +49,8 @@ const addOrEditProducts = () => {
             stock: stockInput.value,
             category: categoryInput.value,
             type: typeInput.value,
-            description: descriptionInput.value
+            description: descriptionInput.value,
         };
-        console.log(productToEdit);
         http
             .put(`${productsURL}/${id}`, productToEdit)
             .then(() => listAdminProducts());
@@ -68,21 +69,18 @@ const addOrEditProducts = () => {
             type: typeInput.value,
             description: descriptionInput.value
         };
-
         http.post(productsURL, product).then(() => listAdminProducts());
         ui.clearFields();
-    }
-    // console.log(validateInput())
+    };
 };
 
-// console.log(addOrEditProducts)
-// console.log(addOrEditProducts())
-
-const editProduct = (e) => {
-    edit = true;
+function editProduct(e) {
     console.log('works');
     if (e.target.classList.contains('edit-btn')) {
+        edit = true;
         id = e.target.getAttribute('id');
+        console.log(id);
+        console.log(e.target)
         http.get(`${productsURL}/${id}`).then((data) => {
             imgInput.value = data.image;
             nameInput.value = data.name;
@@ -92,26 +90,27 @@ const editProduct = (e) => {
             typeInput.value = data.type;
             descriptionInput.value = data.description;
         });
+        console.log(`${productsURL}/${id}`)
     };
+    // id = '';
 }
 
-
-const deleteProduct = (e) => {
+function deleteProduct(e) {
     console.log(e.target);
-    if (e.target.classList.contains('admin-delete-btn') && e.target.parentElement.classlist.contains('admin-produt-delete')) {
+    if (e.target.className === 'admin-delete-btn') {
         console.log(e.target);
         id = e.target.getAttribute('id');
         console.log(id);
         http
             .delete(`${productsURL}/${id}`)
-            .then(() => ui.listAdminProducts())
+            .then(() => listAdminProducts())
             .catch("Error on delete");
+        id = '';
     }
     ui.showSuccessMessage('Product deleted', adminContainer);
-    id = '';
 }
 
-const cancelEdit = () => {
+function cancelEdit() {
     ui.clearFields;
     imgInput.className = '';
     nameInput.className = '';
@@ -122,7 +121,7 @@ const cancelEdit = () => {
 }
 
 
-const validateInput = () => {
+function validateInput() {
     let valid = true;
     if (imgInput.value == '') {
         if (imgInput.classList.contains('input-invalid')) {
@@ -192,8 +191,8 @@ const validateInput = () => {
     return valid;
 };
 
-const removeClass = (element, index) => {
-    console.log(element, index);
+function removeClass(element, index) {
+    // console.log(element, index);
     setTimeout(() => {
         element.className = '';
         validSvg[index].style.display = "none";

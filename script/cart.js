@@ -22,7 +22,7 @@ window.onload = () => {
 
 
 
-const calculateTotalPrice = () => {
+function calculateTotalPrice() {
     let table = document.getElementById('table');
     // all table rows
     let tableRow = table.querySelectorAll(".cart-row");
@@ -61,7 +61,7 @@ const calculateTotalPrice = () => {
     };
 };
 
-const updateQuantity = (e) => {
+function updateQuantity(e) {
     if (e.target.classList.contains('cart-quantity')) {
         let input = e.target;
         //input validation: quantity must be a number between 1 and max.stock
@@ -84,7 +84,7 @@ const updateQuantity = (e) => {
 };
 
 
-const deleteItem = (e) => {
+function deleteItem(e) {
     if (e.target.classList.contains('delete-btn')) {
         // remove from the DOM
         e.target.parentElement.parentElement.remove();
