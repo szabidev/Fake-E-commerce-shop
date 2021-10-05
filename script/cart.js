@@ -61,7 +61,7 @@ const calculateTotalPrice = () => {
     };
 };
 
-function updateQuantity(e) {
+const updateQuantity = (e) => {
     if (e.target.classList.contains('cart-quantity')) {
         let input = e.target;
         //input validation: quantity must be a number between 1 and max.stock
@@ -84,7 +84,7 @@ function updateQuantity(e) {
 };
 
 
-function deleteItem(e) {
+const deleteItem = (e) => {
     if (e.target.classList.contains('delete-btn')) {
         // remove from the DOM
         e.target.parentElement.parentElement.remove();

@@ -3,6 +3,7 @@ import { ui } from "./ui.js";
 
 const productsURL = "https://61363d1a8700c50017ef54c1.mockapi.io/product";
 // const addProductBtn = document.querySelector('.new-product-btn');
+const adminContainer = document.querySelector('.admin-container');
 const addItem = document.querySelector('.admin-add-item-btn');
 const imgInput = document.getElementById('image');
 const nameInput = document.getElementById('name');
@@ -12,25 +13,32 @@ const categoryInput = document.getElementById('category');
 const typeInput = document.getElementById('type');
 const descriptionInput = document.getElementById('description');
 const validSvg = document.querySelectorAll('.valid_input_svg');
-const adminForm = document.getElementById('admin-form');
+// const adminForm = document.getElementById('admin-form');
 const adminTable = document.getElementById('admin-tbody');
 const cancel = document.getElementById('cancel');
 let productToEdit;
 let edit = false;
 let id;
-window.onload = () => {
-    http.get(productsURL).then(products => {
-        ui.showAllAdminProducts(products);
-    });
-};
 
-adminForm.addEventListener('submit', addOrEditProducts);
+
+
+// adminForm.addEventListener('submit', validateInput);
 adminTable.addEventListener('click', deleteProduct);
 adminTable.addEventListener('click', editProduct);
 cancel.addEventListener('click', cancelEdit);
 
-console.log(productsURL);
-function addOrEditProducts() {
+const listAdminProducts = () => {
+    http.get(productsURL).then(products => {
+        ui.showAllAdminProducts(products);
+    });
+};
+document.addEventListener('DOMContentLoaded', listAdminProducts);
+
+
+addItem.addEventListener('click', addOrEditProducts);
+
+const addOrEditProducts = () => {
+    // e.preventDefault();
     if (edit === true && validateInput() === true) {
         productToEdit = {
             image: imgInput.value,
@@ -41,10 +49,10 @@ function addOrEditProducts() {
             type: typeInput.value,
             description: descriptionInput.value
         };
-        console.log(productToEdit)
+        console.log(productToEdit);
         http
             .put(`${productsURL}/${id}`, productToEdit)
-            .then(() => showAllAdminProducts());
+            .then(() => listAdminProducts());
         console.log(`${productsURL}/${id}`)
         ui.clearFields();
         id = '';
@@ -61,7 +69,7 @@ function addOrEditProducts() {
             description: descriptionInput.value
         };
 
-        http.post(productsURL, product).then(() => showAllAdminProducts());
+        http.post(productsURL, product).then(() => listAdminProducts());
         ui.clearFields();
     }
     // console.log(validateInput())
@@ -70,7 +78,7 @@ function addOrEditProducts() {
 // console.log(addOrEditProducts)
 // console.log(addOrEditProducts())
 
-function editProduct(e) {
+const editProduct = (e) => {
     edit = true;
     console.log('works');
     if (e.target.classList.contains('edit-btn')) {
@@ -88,26 +96,33 @@ function editProduct(e) {
 }
 
 
-function deleteProduct(e) {
-    if (e.target.classList.contains('admin-delete-btn')) {
-        console.log(e.target)
+const deleteProduct = (e) => {
+    console.log(e.target);
+    if (e.target.classList.contains('admin-delete-btn') && e.target.parentElement.classlist.contains('admin-produt-delete')) {
+        console.log(e.target);
         id = e.target.getAttribute('id');
-        console.log(id)
+        console.log(id);
         http
             .delete(`${productsURL}/${id}`)
-            .then(() => ui.showAllAdminProducts())
+            .then(() => ui.listAdminProducts())
             .catch("Error on delete");
-        // ui.Messagebanner product deleted
     }
+    ui.showSuccessMessage('Product deleted', adminContainer);
     id = '';
 }
 
-function cancelEdit() {
+const cancelEdit = () => {
     ui.clearFields;
+    imgInput.className = '';
+    nameInput.className = '';
+    priceInput.className = '';
+    stockInput.className = '';
+    categoryInput.className = '';
+    edit = false;
 }
 
 
-function validateInput() {
+const validateInput = () => {
     let valid = true;
     if (imgInput.value == '') {
         if (imgInput.classList.contains('input-invalid')) {
@@ -119,6 +134,7 @@ function validateInput() {
     } else {
         imgInput.classList.add('input-valid');
         validSvg[0].style.display = "block";
+        removeClass(imgInput, 0);
     };
 
     if (nameInput.value === '') {
@@ -132,6 +148,7 @@ function validateInput() {
         // stockInput.classList.remove('input-invalid');
         nameInput.classList.add('input-valid');
         validSvg[1].style.display = "block";
+        removeClass(nameInput, 1);
     };
 
     if (priceInput.value == "" || isNaN(priceInput.value) || priceInput.value < 0) {
@@ -145,6 +162,7 @@ function validateInput() {
         // stockInput.classList.remove('input-invalid');
         priceInput.classList.add('input-valid');
         validSvg[2].style.display = "block";
+        removeClass(priceInput, 2);
     };
 
     if (stockInput.value == "" || isNaN(stockInput.value) || stockInput.value < 0) {
@@ -158,12 +176,14 @@ function validateInput() {
         // stockInput.classList.remove('input-invalid');
         stockInput.classList.add('input-valid');
         validSvg[3].style.display = "block";
+        removeClass(stockInput, 3);
     };
 
     if (categoryInput.value === 'barware' || categoryInput.value === 'spirits') {
         // categoryInput.classList.remove('input-invalid');
         categoryInput.classList.add('input-valid');
         validSvg[4].style.display = "block";
+        removeClass(categoryInput, 4);
     } else {
         ui.showAdminMessage('Category must be barware or spirits', 4);
         categoryInput.classList.add('input-invalid');
@@ -172,4 +192,10 @@ function validateInput() {
     return valid;
 };
 
-validateInput();
+const removeClass = (element, index) => {
+    console.log(element, index);
+    setTimeout(() => {
+        element.className = '';
+        validSvg[index].style.display = "none";
+    }, 3000)
+}

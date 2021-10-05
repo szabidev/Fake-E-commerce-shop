@@ -4,28 +4,17 @@ import { ui } from "./ui.js";
 const productsURL = "https://61363d1a8700c50017ef54c1.mockapi.io/product";
 const filterBtn = document.querySelector('.filter-btn');
 const sidebar = document.querySelector('.filter-sidebar');
-const cartCounter = document.querySelector('.cart-counter');
+// const cartCounter = document.querySelector('.cart-counter');
+const container = document.querySelector('.container');
 
 document.addEventListener("DOMContentLoaded", listAllProducts);
 
 function listAllProducts() {
     http.get(productsURL).then((products) => {
+
         ui.showAllProducts(products);
         ui.onLoadCounter();
-        // ui.cartCounter();
-        // console.log(navigator.geolocation);
 
-        // Deliver to location
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition((position) => {
-        //         let lat = position.coords.latitude;
-        //         let long = position.coords.longitude;
-
-        //         const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=69518b1f8f16c35f8705550dc4161056&units=metric`;
-        //         console.log(api);
-        //         console.log(lat, long);
-        //     });
-        // };
         document.querySelector('.card-container').addEventListener('click', (e) => {
 
             if (e.target.classList.contains('add-to-cart-btn')) {
@@ -48,12 +37,11 @@ function listAllProducts() {
                             // console.log(cart.includes(products[i]));
                             localStorage.setItem("cart", JSON.stringify(cart));
                         }
-                        ui.showSuccessMessage(`${products[i].name} added to cart`);
+                        ui.showSuccessMessage(`${products[i].name} added to cart`, container);
                         ui.cartCounter();
-
-                    }
-                }
-            }
+                    };
+                };
+            };
         });
     });
 };

@@ -2,7 +2,7 @@ import { http } from "./http.js";
 import { ui } from "./ui.js";
 
 const productsURL = "https://61363d1a8700c50017ef54c1.mockapi.io/product";
-
+const detailsContainer = document.querySelector('.details-container');
 window.onload = () => {
     let searchParamString = window.location.search; //this gives us the query param (ex. "?id=1")
     const searchParam = new URLSearchParams(searchParamString);
@@ -19,7 +19,7 @@ window.onload = () => {
         }
 
         document.querySelector('.details-add-to-cart-btn').addEventListener('click', () => {
-            ui.showDetailMessage(`${product.name} added to cart`);
+            ui.showSuccessMessage(`${product.name} added to cart`, detailsContainer);
             const itemQt = document.getElementById('details-input').value;
             if (cart) {
                 // If product already in cart update product.qt accordingly
