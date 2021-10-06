@@ -106,8 +106,8 @@ function deleteProduct(e) {
             .then(() => listAdminProducts())
             .catch("Error on delete");
         id = '';
+        ui.showSuccessMessage('Product deleted', adminContainer);
     }
-    ui.showSuccessMessage('Product deleted', adminContainer);
 }
 
 function cancelEdit() {

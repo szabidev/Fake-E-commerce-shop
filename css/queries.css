@@ -73,6 +73,15 @@
     border-radius: 0;
   }
 
+  .filter-sidebar {
+    width: 50%;
+    top: 15rem;
+  }
+
+  .hide {
+    margin-left: -50%;
+  }
+
   #cart-btn {
     width: 100%;
     top: 7.8rem;
@@ -168,7 +177,18 @@
     grid-column: 1/2;
   }
 }
-/* ========================================================================================== */
+
+@media screen and (max-width: 350px) {
+  .details-add-to-cart-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .details-add-to-cart-btn a {
+    font-size: 1.5rem;
+    /* padding: 0.5rem 1rem; */
+  }
+}
 
 /* =====================================================CART.HTML =========================== */
 @media screen and (max-width: 700px) {
@@ -248,5 +268,53 @@
   .sign-up-btn {
     margin: 0 5rem;
   }
+
+  .checkout-btn {
+    font-size: 2rem;
+  }
 }
+
 /* ======================================================================= */
+
+/* ======================================================= ADMIN.HTML ======================== */
+@media screen and (max-width: 550px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .flex .new-product-form {
+    /* align-items: center; */
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  #price {
+    margin-right: 0;
+  }
+
+  #stock {
+    margin-left: 0;
+  }
+
+  .go-to-home-page-btn-container {
+    margin-left: 5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #admin-table td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #admin-table th {
+    font-size: 1.5rem;
+  }
+  #admin-table td {
+    font-size: 1rem;
+  }
+}
