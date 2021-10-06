@@ -56,6 +56,7 @@ function addOrEditProducts() {
             .then(() => listAdminProducts());
         console.log(`${productsURL}/${id}`)
         ui.clearFields();
+        ui.showSuccessMessage('Product edited', adminContainer)
         id = '';
         edit = false;
         return;
@@ -75,10 +76,10 @@ function addOrEditProducts() {
 };
 
 function editProduct(e) {
-    console.log('works');
     if (e.target.classList.contains('edit-btn')) {
+        e.preventDefault();
         edit = true;
-        id = e.target.getAttribute('id');
+        id = e.target.getAttribute('data-value');
         console.log(id);
         console.log(e.target)
         http.get(`${productsURL}/${id}`).then((data) => {
@@ -96,15 +97,15 @@ function editProduct(e) {
 }
 
 function deleteProduct(e) {
-    console.log(e.target);
     if (e.target.className === 'admin-delete-btn') {
-        console.log(e.target);
+        e.preventDefault();
         id = e.target.getAttribute('id');
-        console.log(id);
         http
             .delete(`${productsURL}/${id}`)
             .then(() => listAdminProducts())
             .catch("Error on delete");
+        console.log('deleted item with id ' + id);
+        // alert('!');
         id = '';
         ui.showSuccessMessage('Product deleted', adminContainer);
     }
@@ -196,5 +197,5 @@ function removeClass(element, index) {
     setTimeout(() => {
         element.className = '';
         validSvg[index].style.display = "none";
-    }, 3000)
+    }, 2000)
 }

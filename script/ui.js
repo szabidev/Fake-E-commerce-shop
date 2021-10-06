@@ -145,7 +145,7 @@ class UI {
                     <td class="admin-product-name">${product.name}</td>
                     <td class="admin-product-price">${product.price}</td>
                     <td class="admin-product-quantity">${product.stock} </td>
-                    <td class="admin-product-edit"><a href="#" class="edit-btn" id="${product.id}">Edit</a></td>
+                    <td class="admin-product-edit"><a href="#" class="edit-btn" data-value="${product.id}">Edit</a></td>
                     <td class="admin-product-delete"><a href="" class="admin-delete-btn" id="${product.id}">Delete</a></td>
                 </tr>
             `
@@ -194,20 +194,6 @@ class UI {
             element.remove()
         }, 1000);
     };
-
-    // showDetailMessage(message, el) {
-    //     let element = document.createElement('div');
-    //     element.classList.add('success-message');
-    //     element.innerHTML = `
-    //         <svg class="success_svg">
-    //             <use xlink:href="#lnr-checkmark-circle"></use>
-    //         </svg> ${message}
-    //     `;
-    //     el.appendChild(element);
-    //     setTimeout(() => {
-    //         element.remove()
-    //     }, 1000);
-    // };
 
     showAdminMessage(message, i) {
         const messageElement = document.createElement('div');

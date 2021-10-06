@@ -86,6 +86,7 @@ function updateQuantity(e) {
 
 function deleteItem(e) {
     if (e.target.classList.contains('delete-btn')) {
+        e.preventDefault();
         // remove from the DOM
         e.target.parentElement.parentElement.remove();
         let btnId = e.target.getAttribute('id');

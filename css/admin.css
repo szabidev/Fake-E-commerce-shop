@@ -171,6 +171,13 @@
   /* border: none; */
 }
 
+.new-product-form input:not(:focus):not(:placeholder-shown) {
+  padding: 1rem 10.5rem;
+}
+.new-product-form textarea:not(:focus):not(:placeholder-shown) {
+  padding: 1rem 14rem;
+}
+
 .new-product-form textarea {
   resize: none;
   font-size: 2rem;
