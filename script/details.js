@@ -3,20 +3,19 @@ import { ui } from "./ui.js";
 
 const productsURL = "https://61363d1a8700c50017ef54c1.mockapi.io/product";
 const detailsContainer = document.querySelector('.details-container');
+
 window.onload = () => {
-    let searchParamString = window.location.search; //this gives us the query param (ex. "?id=1")
+    let searchParamString = window.location.search; //Getting the query param ("?id=1")
     const searchParam = new URLSearchParams(searchParamString);
-    const id = searchParam.get("id"); //getting the id-nr out of the string
+    const id = searchParam.get("id"); //Getting the id-nr out of the string
     ui.onLoadCounter();
     http.get(productsURL + "/" + id).then((product) => {
         ui.showSingleProductDetail(product);
         let cart = JSON.parse(localStorage.getItem("cart"));
-        // console.log(typeof cart);
-        // console.log(product);
         if (cart === null) {
             cart = [];
             localStorage.setItem("cart", JSON.stringify(cart));
-        }
+        };
 
         document.querySelector('.details-add-to-cart-btn').addEventListener('click', () => {
             ui.showSuccessMessage(`${product.name} added to cart`, detailsContainer);
@@ -27,7 +26,6 @@ window.onload = () => {
                 cart = JSON.parse(localStorage.getItem("cart"));
                 cart.push(product);
                 localStorage.setItem("cart", JSON.stringify(cart));
-
             };
             ui.cartCounter();
         });

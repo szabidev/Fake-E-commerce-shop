@@ -12,14 +12,10 @@ window.onload = () => {
         ui.showCartProducts();
         calculateTotalPrice();
 
-        // table.addEventListener('change', calculateTotalPrice);
         table.addEventListener('change', updateQuantity);
         table.addEventListener('click', deleteItem);
     });
 };
-
-
-
 
 
 function calculateTotalPrice() {
@@ -34,28 +30,28 @@ function calculateTotalPrice() {
         // get the value from the input,getElementById throws error
         let productQt = tableRow[i].querySelector('input[type=number]').value;
         total += Number(productPrice) * Number(productQt);
-        priceText.innerHTML = `$${parseFloat(total).toFixed(2)}`
+        priceText.innerHTML = `$${parseFloat(total).toFixed(2)}`;
     };
 
     if (total < 200 && total > 0) {
         shipping.innerHTML = "$30";
         shipping.setAttribute('data-value', 30);
-        totalPrice.innerHTML = `
+        totalPrice.innerHTML = `;
         $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
 
     } else if (total > 201 && total < 1000) {
-        shipping.innerHTML = "$15"
+        shipping.innerHTML = "$15";
         shipping.setAttribute('data-value', 15);
-        totalPrice.innerHTML = `
+        totalPrice.innerHTML = `;
         $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
 
     } else {
-        priceText.innerHTML = "$0.00"
+        priceText.innerHTML = "$0.00";
         shipping.innerHTML = "$0.00";
         shipping.setAttribute('data-value', 0);
-        totalPrice.innerHTML = `
+        totalPrice.innerHTML = `;
         $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
     };
@@ -76,13 +72,11 @@ function updateQuantity(e) {
             if (cart[i].id === idInput) {
                 cart[i].qt = Number(input.value);
                 localStorage.setItem("cart", JSON.stringify(cart));
-            }
+            };
         };
-
         calculateTotalPrice();
     };
 };
-
 
 function deleteItem(e) {
     if (e.target.classList.contains('delete-btn')) {

@@ -8,10 +8,8 @@
   width: 100%;
   min-height: 8rem;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   border-bottom: 1px solid var(--secondary-color-dark);
-  /* box-shadow: 0 8px 10px rgba(0, 0, 0, 0.35); */
   z-index: 1000;
   padding-left: 15rem;
 }
@@ -25,7 +23,6 @@
 .details-container {
   width: 60%;
   height: 60vh;
-  /* height: 70vh; */
   border: 1px solid var(--secondary-color-dark);
   border-radius: 5px;
   margin: 8rem auto;
@@ -86,11 +83,9 @@
 
 .details-form-control {
   display: flex;
-  /* flex-direction: column; */
   width: 70%;
   margin: 0 auto;
   margin-bottom: 2rem;
-  /* text-align: center; */
   grid-column: 2/3;
   grid-row: 2/3;
 }

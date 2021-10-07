@@ -9,12 +9,12 @@ class UI {
         this.messageContainer = document.querySelector('.message-container');
         this.cartNumber = document.querySelector('.cart-counter');
         this.inputContainer = document.querySelectorAll('.new-product-form');
-        this.labels = document.getElementsByClassName('label')
     }
-    //- ShowAllProducts() 
+    //- ShowAllProducts() on index.html
     showAllProducts(products) {
         let output = '';
         products.forEach((product) => {
+            // check for stock quantity
             if (Number(product.stock) == 0) {
                 output += `
                 <div class="card">
@@ -42,7 +42,7 @@ class UI {
                     <a href="#" onclick="return false" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
                 </div>
             </div>
-            `
+            `;
             } else {
                 output += `
                 <div class="card">
@@ -70,12 +70,12 @@ class UI {
                     <a href="#" onclick="return false" class="add-to-cart-btn" id="${product.id}">Add to Cart</a>
                 </div>
             </div>
-            `
-            }
+            `;
+            };
             this.cardContainer.innerHTML = output;
         });
-    }
-    //- ShowSingleProduct() - Get request to details.html where onload list a single items details
+    };
+    //- ShowSingleProduct() - Show product on details.html
     showSingleProductDetail(product) {
         let output = `
             <div class="details-image-container">
@@ -107,8 +107,8 @@ class UI {
         <p class="details-price"> <sup class="dollar">$</sup> ${product.price} </p>
         `;
         this.detailsContainer.innerHTML = output;
-    }
-
+    };
+    // showcartproducts() - Show products in cart.html
     showCartProducts() {
         let output = '';
         let cart = JSON.parse(localStorage.getItem('cart'));
@@ -129,13 +129,12 @@ class UI {
                         <a href="#" class="delete-btn" id="${cart[i].id}">Delete</a>
                         </td>
                         </tr>
-                        `
-            }
-        }
+                        `;
+            };
+        };
         this.cartTBody.innerHTML = output;
-        // ${this.quantity.getAttribute('value')}
-    }
-
+    };
+    // showAllAdminProducts() - Show products in admin.html
     showAllAdminProducts(products) {
         let output = '';
         products.forEach((product) => {
@@ -152,7 +151,7 @@ class UI {
         });
         this.adminTBody.innerHTML = output;
     };
-
+    // Update cart icon according to local storage items qt
     cartCounter() {
         let cart = JSON.parse(localStorage.getItem('cart'));
         if (cart === null) {
@@ -167,7 +166,7 @@ class UI {
 
         this.cartNumber.innerHTML = counter;
     };
-
+    // On page load recalulate counter icon
     onLoadCounter() {
         let cart = JSON.parse(localStorage.getItem('cart'));
         if (cart === null) {
@@ -192,7 +191,7 @@ class UI {
         el.appendChild(element);
         setTimeout(() => {
             element.remove()
-        }, 1000);
+        }, 1500);
     };
 
     showAdminMessage(message, i) {
@@ -203,7 +202,7 @@ class UI {
         this.inputContainer[i].insertAdjacentElement('afterbegin', messageElement);
         setTimeout(() => {
             messageElement.remove();
-        }, 10000)
+        }, 1500)
     };
 
     clearFields() {
@@ -212,10 +211,8 @@ class UI {
         document.getElementById('price').value = '';
         document.getElementById('stock').value = '';
         document.getElementById('category').value = '';
-        // document.getElementById('category').value = '';
         document.getElementById('description').value = '';
     };
 };
-
 
 export const ui = new UI();

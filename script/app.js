@@ -4,12 +4,10 @@ import { ui } from "./ui.js";
 const productsURL = "https://61363d1a8700c50017ef54c1.mockapi.io/product";
 const filterBtn = document.querySelector('.filter-btn');
 const sidebar = document.querySelector('.filter-sidebar');
-// const cartCounter = document.querySelector('.cart-counter');
 const container = document.querySelector('.container');
 
 document.addEventListener("DOMContentLoaded", listAllProducts);
 filterBtn.addEventListener('click', toggleSidebar);
-
 
 
 function listAllProducts() {
@@ -33,11 +31,7 @@ function listAllProducts() {
                         if (cart) {
                             cart = JSON.parse(localStorage.getItem('cart'));
                             products[i].qt = itemQt;
-                            // if (cart.includes(products[i])) {
-                            //     console.log(cart[products[i]]);
-                            // }
                             cart.push(products[i]);
-                            // console.log(cart.includes(products[i]));
                             localStorage.setItem("cart", JSON.stringify(cart));
                         }
                         ui.showSuccessMessage(`${products[i].name} added to cart`, container);

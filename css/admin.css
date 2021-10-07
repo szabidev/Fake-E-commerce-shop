@@ -12,24 +12,6 @@
   transform: translateY(3.5px);
 }
 
-/* .new-product-btn {
-  display: inline-block;
-  margin-top: 3rem;
-  margin-left: 10%;
-  width: 30%;
-  padding: 0.5rem 2rem;
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--secondary-color-dark);
-  text-decoration: none;
-  letter-spacing: 1px;
-  background-color: var(--secondary-color);
-  outline: none;
-  cursor: pointer;
-  border-radius: 5px;
-} */
-
 .admin-table-wrapper {
   width: 80%;
   background-color: var(--secondary-color-dark);
@@ -121,8 +103,6 @@
   padding: 2.5rem 5rem;
   border: 1px solid var(--secondary-color-dark);
   border-radius: 5px;
-  /* display: flex; */
-  /* flex-direction: column; */
 }
 
 .margin {
@@ -133,7 +113,6 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  /* margin: 2.5rem 0; */
 }
 
 .new-product-form label {
@@ -159,16 +138,11 @@
   animation-fill-mode: forwards;
 }
 
-/* .new-product-form input:not(:focus):valid + label {
-  visibility: hidden;
-} */
-
 .new-product-form input {
   padding: 1rem 2rem;
   border-radius: 5px;
   outline: none;
   font-size: 2rem;
-  /* border: none; */
 }
 
 .new-product-form input:not(:focus):not(:placeholder-shown) {
@@ -199,19 +173,11 @@
   font-size: 2rem;
   border-top: 1px solid var(--secondary-color-dark);
   border-radius: 5px;
-  /* margin: 2.5rem 0; */
-  /* -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; */
 }
 
 optgroup[label="Barware"] {
   margin-bottom: 1rem;
 }
-
-/* #type:focus {
-  width: 50%;
-} */
 
 .admin-add-item-btn,
 .cancel-btn {

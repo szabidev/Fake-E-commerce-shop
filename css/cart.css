@@ -6,9 +6,6 @@
 .admin-table {
   width: 80%;
   margin: 0 auto;
-  /* margin-bottom: 2rem; */
-
-  /* min-height: 37vh; */
 }
 
 #table {
@@ -19,7 +16,6 @@
   border-collapse: collapse;
   table-layout: fixed;
   empty-cells: hide;
-  /* check gap invisible border */
 }
 
 #thead th,
@@ -42,8 +38,6 @@
 
 .first-header {
   width: 10%;
-  /* check border */
-  /* background-color: white; */
 }
 .second-header {
   width: 50%;
@@ -62,7 +56,6 @@
 }
 
 .cart-product-name {
-  /* Check text wrapping, why it doesnt work?????? */
   width: 30%;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -100,12 +93,6 @@
   margin-right: 5rem;
   margin-bottom: 5rem;
 }
-
-/* .float-box {
-  position: absolute;
-  top: 0;
-  right: 0;
-} */
 
 .price-list,
 .price-amount {
