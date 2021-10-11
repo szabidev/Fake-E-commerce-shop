@@ -30,8 +30,13 @@ function listAllProducts() {
                         }
                         if (cart) {
                             cart = JSON.parse(localStorage.getItem('cart'));
-                            products[i].qt = itemQt;
-                            cart.push(products[i]);
+                            if (!cart[i]) {
+                                cart.push(products[i]);
+                            }
+                            else if (cart[i].id == products[i].id) {
+                                cart[i].qt = Number(cart[i].qt) + Number(itemQt);
+                                console.log(cart[i].id)
+                            };
                             localStorage.setItem("cart", JSON.stringify(cart));
                         }
                         ui.showSuccessMessage(`${products[i].name} added to cart`, container);

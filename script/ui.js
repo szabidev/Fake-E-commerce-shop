@@ -202,6 +202,7 @@ class UI {
         this.inputContainer[i].insertAdjacentElement('afterbegin', messageElement);
         setTimeout(() => {
             messageElement.remove();
+            // put input elements here to remove error border
         }, 1500)
     };
 

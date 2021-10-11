@@ -36,23 +36,20 @@ function calculateTotalPrice() {
     if (total < 200 && total > 0) {
         shipping.innerHTML = "$30";
         shipping.setAttribute('data-value', 30);
-        totalPrice.innerHTML = `;
-        $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
+        totalPrice.innerHTML = `$${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
 
     } else if (total > 201 && total < 1000) {
         shipping.innerHTML = "$15";
         shipping.setAttribute('data-value', 15);
-        totalPrice.innerHTML = `;
-        $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
+        totalPrice.innerHTML = `$${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
 
     } else {
         priceText.innerHTML = "$0.00";
         shipping.innerHTML = "$0.00";
         shipping.setAttribute('data-value', 0);
-        totalPrice.innerHTML = `;
-        $${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
+        totalPrice.innerHTML = `$${parseFloat(total + Number(shipping.getAttribute('data-value'))).toFixed(2)}
         `;
     };
 };
