@@ -30,12 +30,11 @@ function listAllProducts() {
                         }
                         if (cart) {
                             cart = JSON.parse(localStorage.getItem('cart'));
-                            if (!cart[i]) {
+                            if (!cart[i] || cart === []) {
                                 cart.push(products[i]);
                             }
                             else if (cart[i].id == products[i].id) {
                                 cart[i].qt = Number(cart[i].qt) + Number(itemQt);
-                                console.log(cart[i].id)
                             };
                             localStorage.setItem("cart", JSON.stringify(cart));
                         }

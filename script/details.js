@@ -18,15 +18,23 @@ window.onload = () => {
         };
 
         document.querySelector('.details-add-to-cart-btn').addEventListener('click', () => {
-            ui.showSuccessMessage(`${product.name} added to cart`, detailsContainer);
             const itemQt = document.getElementById('details-input').value;
             if (cart) {
-                // If product already in cart update product.qt accordingly
-                product.qt = Number(itemQt);
                 cart = JSON.parse(localStorage.getItem("cart"));
+                // for (let i = 0; i < cart.length; i++) {
+                //     if () {
+                //         cart.push(product);
+                //         console.log('if')
+                //     } else if (cart[i].id == product.id) {
+                //         console.log('else')
+                //         cart[i].qt = Number(cart.qt) + Number(itemQt);
+                //     }
+                // }
+                product.qt = Number(itemQt);
                 cart.push(product);
                 localStorage.setItem("cart", JSON.stringify(cart));
             };
+            ui.showSuccessMessage(`${product.name} added to cart`, detailsContainer);
             ui.cartCounter();
         });
     });
