@@ -1,0 +1,222 @@
+/* INDEX.HTML */
+.btn {
+  background-color: var(--secondary-color-dark);
+  width: 12.5%;
+  display: inline-block;
+  font-size: 2.25rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: var(--gray-color-1);
+}
+
+.btn:visited,
+.btn:link,
+.btn:active,
+.logo:visited,
+.logo:link,
+.logo:active {
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--gray-color-1);
+  color: var(--secondary-color-dark);
+}
+
+.log-in-btn,
+.sign-up-btn,
+.admin-btn {
+  margin: 0rem 1rem;
+}
+
+.btn:hover .user_svg,
+.btn:hover .users_svg,
+.btn:hover .lock_svg {
+  fill: var(--secondary-color-dark);
+}
+
+.filter-btn {
+  position: absolute;
+  top: 5.4rem;
+  left: 0rem;
+  width: 20rem;
+  background-color: var(--secondary-color-dark);
+  color: var(--secondary-color);
+  font-size: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--secondary-color);
+  border-right: 1px solid var(--secondary-color);
+  border-top-right-radius: 5px;
+  letter-spacing: 3px;
+  padding: 0.3rem 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#cart-btn {
+  position: absolute;
+  top: 8.6rem;
+  right: 0;
+  background-color: var(--secondary-color-dark);
+  width: 25rem;
+  border-bottom-left-radius: 5px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+  color: var(--gray-color-1);
+}
+
+#cart-btn .cart-counter {
+  background-color: #06d6a0;
+  border-radius: 50%;
+  padding: 0.35rem;
+  font-size: 1.5rem;
+  color: #353535;
+  text-align: center;
+  font-weight: 700;
+  position: absolute;
+  top: 0.25rem;
+  left: 6.5rem;
+  z-index: 100;
+}
+
+.details-btn {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  width: 50%;
+  background-color: var(--secondary-color-dark);
+  position: absolute;
+  top: -3.5rem;
+  right: 0;
+  text-align: center;
+  color: var(--secondary-color);
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.details-btn:hover {
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+}
+
+.add-to-cart-btn {
+  display: block;
+  background-color: var(--secondary-color-dark);
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* DETAILS.HTML */
+.details-add-to-cart-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+}
+
+.details-add-to-cart-btn a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  background-color: var(--secondary-color-dark);
+  color: var(--secondary-color);
+  padding: 1rem 4rem;
+  border-top-left-radius: 5px;
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+/* CART.HTML */
+.delete-btn {
+  font-size: 3rem;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+}
+
+/* CART.HTML */
+.checkout-btn {
+  width: 40%;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+/* ADMIN.HTML */
+.edit-btn,
+.admin-delete-btn {
+  color: var(--secondary-color);
+  letter-spacing: 1px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.edit-btn:visited,
+.edit-btn:link,
+.edit-btn:active,
+.admin-delete-btn:visited,
+.admin-delete-btn:link,
+.admin-delete-btn:active,
+.go-to-home-page-btn:visited,
+.go-to-home-page-btn:link,
+.go-to-home-page-btn:active {
+  text-decoration: none;
+}
+
+.go-to-home-page-btn-container {
+  margin-left: 15rem;
+}
+
+.go-to-home-page-btn {
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--secondary-color);
+  letter-spacing: 1px;
+  background-color: var(--secondary-color-dark);
+}
+
+.go_to_home_page_btn_svg {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  fill: var(--secondary-color);
+  transform: translateY(5px);
+}
+
+.admin-add-item-btn,
+.cancel-btn {
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  width: 100%;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+}

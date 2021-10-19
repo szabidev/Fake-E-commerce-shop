@@ -1,0 +1,61 @@
+/* INDEX.HTML */
+.footer {
+  width: 100%;
+  display: flex;
+  background-color: var(--main-color-light);
+}
+
+.contact-info {
+  width: 40%;
+  padding: 1.5rem 0;
+}
+
+.contact-text {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.address,
+.email,
+.phone-number {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+.address {
+  padding-top: 2rem;
+}
+
+.up-arrow {
+  margin: 2rem 6rem 0 10rem;
+}
+
+.google-map {
+  margin: 1rem 0 1rem 6rem;
+  margin-left: 6rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 100%;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 100%;
+  width: 400px;
+}
+
+/* DETAILS.HTML */
+.details-google-map {
+  margin-left: 29rem !important;
+}

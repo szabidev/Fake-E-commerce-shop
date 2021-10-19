@@ -1,102 +1,41 @@
-.admin-container {
-  width: 100%;
-  min-height: 100vh;
-  margin-top: 15rem;
+/* INDEX.HTML SIDEBAR FORM */
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
 }
 
-.new_product_svg {
-  width: 3rem;
-  height: 3rem;
-  fill: var(--secondary-color-dark);
-  margin-right: 1rem;
-  transform: translateY(3.5px);
+.form-control:not(:last-child) {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-
-.admin-table-wrapper {
-  width: 80%;
-  background-color: var(--secondary-color-dark);
-  margin: 0 auto;
-  border-radius: 5px;
-  margin-bottom: 10rem;
-}
-
-#admin-table {
-  width: 100%;
-  margin: 2rem 0;
-  color: var(--secondary-color);
-  border-collapse: collapse;
-}
-
-#admin-thead th {
+.filter-header {
   font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-  padding: 1rem 0;
-  text-transform: uppercase;
-  border: 1px solid var(--secondary-color);
+  font-weight: 400;
+  margin: 0.5rem 0;
 }
 
-#admin-tbody td {
+.form-control label {
+  padding: 0.5rem 0;
   font-size: 2rem;
-  text-align: center;
-  border: 1px solid var(--secondary-color);
-  padding: 1rem 2rem;
-}
-
-.header-1 {
-  width: 40%;
-}
-.header-2,
-.header-3 {
-  width: 10%;
-}
-.header-4,
-.header-5 {
-  width: 20%;
-}
-
-.edit-btn,
-.admin-delete-btn {
-  color: var(--secondary-color);
   letter-spacing: 1px;
-  text-decoration: none;
-  width: 100%;
 }
 
-.edit-btn:visited,
-.edit-btn:link,
-.edit-btn:active,
-.admin-delete-btn:visited,
-.admin-delete-btn:link,
-.admin-delete-btn:active,
-.go-to-home-page-btn:visited,
-.go-to-home-page-btn:link,
-.go-to-home-page-btn:active {
-  text-decoration: none;
+.form-control label:hover,
+.form-control label:active {
+  color: var(--main-color);
 }
 
-.go-to-home-page-btn-container {
-  margin-left: 15rem;
+.form-control input {
+  margin-right: 0.5rem;
+  margin-left: 3rem;
 }
 
-.go-to-home-page-btn {
-  font-size: 2.5rem;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  text-decoration: none;
-  color: var(--secondary-color);
-  letter-spacing: 1px;
-  background-color: var(--secondary-color-dark);
+.price-arrow {
+  margin: 0 0.5rem;
 }
 
-.go_to_home_page_btn_svg {
-  width: 3rem;
-  height: 3rem;
-  margin-right: 1rem;
-  fill: var(--secondary-color);
-  transform: translateY(5px);
-}
-
+/* ADMIN.HTML PRODUCT FORM */
 .new-product-container {
   width: 80%;
   margin: 15rem auto;
@@ -179,19 +118,6 @@ optgroup[label="Barware"] {
   margin-bottom: 1rem;
 }
 
-.admin-add-item-btn,
-.cancel-btn {
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  width: 100%;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  outline: none;
-  border: none;
-  text-transform: uppercase;
-  border-radius: 5px;
-}
-
 .flex {
   display: flex;
   justify-content: center;
@@ -239,21 +165,4 @@ optgroup[label="Barware"] {
   position: absolute;
   top: -4rem;
   left: 1rem;
-}
-
-@keyframes inputTextDown {
-  0% {
-    top: -0.25rem;
-    opacity: 1;
-  }
-
-  50% {
-    top: 2rem;
-    opacity: 0.5;
-  }
-
-  100% {
-    top: 3.5rem;
-    opacity: 0;
-  }
 }
